@@ -1,0 +1,125 @@
+
+
+body{
+  text-align: center;
+  margin: 0;
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+}
+h1{
+  color: #66bfbf;
+  margin: 0;
+  font-family: 'Dancing Script', cursive;
+  font-size: 4.625rem;
+}
+h2{
+  color: #66bfbf;
+  font-weight: normal;
+  margin: 0;
+  font-size: 2.5rem;
+}
+h3{
+  color: #11999e;
+
+}
+.top-container{
+  position: relative;
+  background-color: #e6f8f9;
+  margin: 0;
+  height: 800px;
+
+}
+.name{
+  margin: 0;
+}
+.about{
+  margin:0;
+}
+.mountain{
+  position: relative;
+  right: 15%;
+  padding: 50px;
+}
+.top-cloud{
+position: relative;
+left: 20%;
+
+
+}
+.bottom-cloud{
+  position: relative;
+  margin-bottom: 150px;
+
+}
+
+.middle-container{
+  padding: 20px;
+}
+
+.skill-row{
+  width: 50%;
+  line-height: 2;
+margin:100px auto;
+text-align: left;
+}
+.code{
+  float: left;
+  margin-right: 30px;
+  width: 25%;
+}
+.html{
+  float: right;
+  width:25% ;
+  margin-left: 30px;
+}
+hr{
+  margin: 50px auto;
+  width: 5%;
+  border-style: dotted none none none;
+  border-top-color: gray;
+  border-top-width: 7px;
+}
+.skills{
+  margin-top: auto;
+}
+.contact-me{
+  padding: 20px;
+
+}
+.btn{
+  margin: 100px;
+}
+.bottom-container{
+  text-align: center;
+  position: relative;
+  height: 180px;
+  background-color:#66bfbf;
+
+}
+.linkedin{
+  position: relative;
+  top: 50px;
+  right: 3%;
+  color: #11999e;
+}
+.twitter{
+  color: #11999e;
+  position: relative;
+  top: 50px;
+
+}
+.website{
+  color: #11999e;
+  position: relative;
+  top: 50px;
+  left: 3%;
+
+}
+.copyright{
+  font-family: sans-serif;
+  color: #EAF6F6;
+  position:absolute ;
+left: 46%;
+top: 40%;
+
+
+}
