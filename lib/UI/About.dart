@@ -197,7 +197,7 @@ class _CustomImageAnimationState extends State<CustomImageAnimation> {
 
   void _incrementExit(PointerEvent details) {
     setState(() {
-      customImageColor = Color(0xff61F9D5).withOpacity(0.5);
+      customImageColor = Color(0xff61F9D5).withOpacity(0.2);
       _exitCounter++;
     });
   }
@@ -225,7 +225,7 @@ class _CustomImageAnimationState extends State<CustomImageAnimation> {
             color: Colors.black54,
             child: Image(
               fit: BoxFit.cover,
-              image: AssetImage("images/pic1.jpeg"),
+              image: AssetImage("images/pic1.png"),
             ),
           ),
           Container(
