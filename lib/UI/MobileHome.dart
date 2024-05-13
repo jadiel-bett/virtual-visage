@@ -47,8 +47,8 @@ class _MobileHomeState extends State<MobileHome> {
                   currentAccountPicture: CircleAvatar(
                     child: Icon(Icons.person),
                   ),
-                  accountName: Text("Tushar Nikam"),
-                  accountEmail: Text("champ96k@gmail.com")),
+                  accountName: Text("Jadiel Bett"),
+                  accountEmail: Text("jadielbett@gmail.com")),
               ListTile(
                 title: Text("Share"),
                 leading: Icon(Icons.share),
@@ -95,7 +95,7 @@ class _MobileHomeState extends State<MobileHome> {
                 height: size.height * 0.02,
               ),
               CustomText(
-                text: "Tushar Nikam.",
+                text: "Jadiel Bett.",
                 textsize: 52.0,
                 color: Color(0xffCCD6F6),
                 fontWeight: FontWeight.w900,
@@ -119,7 +119,7 @@ class _MobileHomeState extends State<MobileHome> {
                 child: Wrap(
                   children: [
                     Text(
-                      "I'm a freelancer based in Nashik, IN specializing in building (and occasionally designing) exceptional websites, applications, and everything in between.",
+                      "I'm a freelancer based in Nairobi, KE specializing in building (and occasionally designing) exceptional websites, applications, and everything in between.",
                       style: TextStyle(
                         color: Colors.grey,
                         fontSize: 15.0,
@@ -217,7 +217,7 @@ class _MobileHomeState extends State<MobileHome> {
                         children: [
                           CustomText(
                             text:
-                                "Hello! I'm Tushar, a Freelancer based in Nashik, IN.\nI enjoy creating things that live on the internet, whether that be websites, applications, or anything in between. My goal is to always build products that provide pixel-perfect, performant experiences.\n",
+                                "Hello! I'm Jadiel, a Freelancer based in Nairobi, KE.\nI enjoy creating things that live on the internet, whether that be websites, applications, or anything in between. My goal is to always build products that provide pixel-perfect, performant experiences.\n",
                             textsize: 16.0,
                             color: Color(0xff828DAA),
                             fontWeight: FontWeight.w500,
@@ -259,7 +259,7 @@ class _MobileHomeState extends State<MobileHome> {
                                 technology(context, "Dart"),
                                 technology(context, "Flutter"),
                                 technology(context, "Firebase"),
-                                technology(context, "UI/UX (Adobe XD)"),
+                                technology(context, "React"),
                               ],
                             ),
                             Column(
@@ -310,7 +310,7 @@ class _MobileHomeState extends State<MobileHome> {
                         width: size.width * 0.6,
                         child: Image(
                           fit: BoxFit.cover,
-                          image: AssetImage("images/pic1.jpeg"),
+                          image: AssetImage("images/pic1.png"),
                         ),
                       ),
                       Container(
