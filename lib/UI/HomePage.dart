@@ -118,7 +118,7 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 Tab(
                                   child: AppBarTitle(
-                                    text: 'Project',
+                                    text: 'Projects',
                                   ),
                                 ),
                                 Tab(
@@ -151,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                             child: TextButton(
                               onPressed: () {
                                 method.launchURL(
-                                  "https://drive.google.com/file/d/1jda4M5ckEsmZ-_mPIGZ2M5qh1Zdha6tl/view?usp=sharing",
+                                  "https://docs.google.com/document/d/1AjceKthyqyBWrInOYh3A0TlxY74PbaqY0N-l3r6Ucks/edit?usp=sharing",
                                 );
                               },
                               child: Padding(
