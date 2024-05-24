@@ -28,10 +28,7 @@ class About extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     String about =
-        """I’m a software developer with 3 years of experience, I have a strong passion for creating innovative solutions that drive business growth and improve user experiences. I have a Bachelor’s Degree in Mechatronics Engineering and I’m currently enrolled in IBM SkillsBuild's Artificial Intelligence Fundamentals Program. My technical expertise includes proficiency in a range of programming languages such as C++, Python, JavaScript, HTML, Dart, Flutter and React.
-I thrive in collaborative environments and enjoy working with cross-functional teams to deliver high-quality software solutions that meet user needs. I am a strong communicator and have a track record of successfully managing projects from ideation to launch, ensuring that all stakeholders are aligned and the end product is of the highest quality.
-In addition to my technical skills, I also possess strong communication and problem-solving abilities. I am committed to staying up-to-date with the latest industry trends and technologies, and I am constantly seeking out opportunities to expand my skillset and knowledge.
-Overall, I am passionate about using my technical expertise to develop software solutions that make a meaningful impact on businesses and end-users alike.""";
+        """I’m a software developer with 3 years of experience, I have a strong passion for creating innovative solutions that drive business growth and improve user experiences.\nOverall, I am passionate about using my technical expertise to develop software solutions that make a meaningful impact on businesses and end-users alike.\n""";
     return Container(
       height: size.height,
       width: size.width - 100,
@@ -84,7 +81,7 @@ Overall, I am passionate about using my technical expertise to develop software 
                   children: [
                     CustomText(
                       text:
-                          "Hello! I'm Jadiel Bett, a Software developer/Mechatronic Engineer based in Nairobi, KE,\n\nI enjoy creating things that live on the internet, whether that be websites and applications, as well as real-life robots and anything in between. My goal is to always build products that provide pixel-perfect, performant experiences.\n\n",
+                          "Hello! I'm Jadiel Bett, a Software developer/Mechatronic Engineer based in Nairobi, KE,\n\nI enjoy creating things that live on the internet, whether that be websites and applications, as well as real-life robots and anything in between. My goal is to always build products that provide pixel-perfect, performant experiences.\n",
                       textsize: 16.0,
                       color: Color(0xff828DAA),
                       letterSpacing: 0.75,
@@ -99,7 +96,7 @@ Overall, I am passionate about using my technical expertise to develop software 
                     ),
                     CustomText(
                       text:
-                          "Here are a few technologies I've been working with recently:\n\n",
+                          "Here are a few technologies I've been working with recently:\n",
                       textsize: 16.0,
                       color: Color(0xff828DAA),
                       letterSpacing: 0.75,
