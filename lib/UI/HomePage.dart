@@ -151,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                             child: TextButton(
                               onPressed: () {
                                 method.launchURL(
-                                  "https://docs.google.com/document/d/1AjceKthyqyBWrInOYh3A0TlxY74PbaqY0N-l3r6Ucks/edit?usp=sharing",
+                                  "https://docs.google.com/document/d/1lPA-TkKM_ofaDRaK9pg-7rh4fUdaBpwQlYfHpOKB4QM/edit?usp=sharing",
                                 );
                               },
                               child: Padding(
