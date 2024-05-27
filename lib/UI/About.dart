@@ -28,7 +28,7 @@ class About extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     String about =
-        """I’m a software developer with 3 years of experience, I have a strong passion for creating innovative solutions that drive business growth and improve user experiences.\nOverall, I am passionate about using my technical expertise to develop software solutions that make a meaningful impact on businesses and end-users alike.\n""";
+        """I’m a software developer with over 4 years of experience, I am passionate about using my technical expertise to develop software solutions that make a meaningful impact on businesses and end-users alike.\n""";
     return Container(
       height: size.height,
       width: size.width - 100,
@@ -37,7 +37,7 @@ class About extends StatelessWidget {
           //About me
           Container(
             height: size.height * 0.9,
-            width: size.width / 2 - 100,
+            width: size.width * 0.6 - 100,
             child: Column(
               children: [
                 //About me title
@@ -65,7 +65,7 @@ class About extends StatelessWidget {
                       width: size.width * 0.01,
                     ),
                     Container(
-                      width: size.width / 4,
+                      width: size.width / 5,
                       height: 1.10,
                       color: Color(0xff303C55),
                     ),
@@ -105,37 +105,33 @@ class About extends StatelessWidget {
                   ],
                 ),
 
-                Container(
-                  height: size.height * 0.15,
-                  width: size.width,
-                  child: Wrap(
-                    children: [
-                      Container(
-                        width: size.width * 0.20,
-                        height: size.height * 0.15,
-                        child: Column(
-                          children: [
-                            technology(context, "Dart"),
-                            technology(context, "Flutter"),
-                            technology(context, "Firebase"),
-                            technology(context, "React"),
-                          ],
-                        ),
+                Wrap(
+                  children: [
+                    Container(
+                      width: size.width * 0.20,
+                      height: size.height * 0.15,
+                      child: Column(
+                        children: [
+                          technology(context, "Dart"),
+                          technology(context, "Flutter"),
+                          technology(context, "Firebase"),
+                          technology(context, "React"),
+                        ],
                       ),
-                      Container(
-                        width: size.width * 0.15,
-                        height: size.height * 0.15,
-                        child: Column(
-                          children: [
-                            technology(context, "C/C++."),
-                            technology(context, "HTML, CSS & JS"),
-                            technology(context, "MYSQL"),
-                            technology(context, "Git - Github"),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
+                    ),
+                    Container(
+                      width: size.width * 0.15,
+                      height: size.height * 0.15,
+                      child: Column(
+                        children: [
+                          technology(context, "C/C++."),
+                          technology(context, "HTML, CSS & JS"),
+                          technology(context, "MYSQL"),
+                          technology(context, "Git - Github"),
+                        ],
+                      ),
+                    )
+                  ],
                 )
               ],
             ),
@@ -145,7 +141,7 @@ class About extends StatelessWidget {
           Expanded(
             child: Container(
               height: size.height / 1.5,
-              width: size.width / 2 - 100,
+              width: size.width * 0.4 - 100,
               // color: Colors.white,
               child: Stack(
                 alignment: Alignment.center,
