@@ -58,7 +58,6 @@ class _WorkState extends State<Work> {
                 flex: 1,
                 child: Container(
                     height: size.height * 1.2,
-                    //color: Colors.indigo,
                     child: Stack(
                       children: [
                         Center(
@@ -72,36 +71,40 @@ class _WorkState extends State<Work> {
                         ),
                         Container(
                           child: Center(
-                              child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              CircleAvatar(
-                                backgroundColor: Colors.pink,
-                                child: FaIcon(FontAwesomeIcons.houseLaptop,
-                                    color: Colors.white),
-                              ),
-                              CircleAvatar(
-                                backgroundColor: Colors.red,
-                                child: FaIcon(FontAwesomeIcons.freeCodeCamp,
-                                    color: Colors.white),
-                              ),
-                              CircleAvatar(
-                                backgroundColor: Colors.brown,
-                                child: FaIcon(FontAwesomeIcons.laptopCode,
-                                    color: Colors.white),
-                              ),
-                              CircleAvatar(
-                                backgroundColor: Colors.deepOrange,
-                                child: FaIcon(FontAwesomeIcons.mugSaucer,
-                                    color: Colors.white),
-                              ),
-                              CircleAvatar(
-                                backgroundColor: Colors.deepPurple,
-                                child: FaIcon(FontAwesomeIcons.dev,
-                                    color: Colors.white),
-                              ),
-                            ],
-                          )),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                CircleAvatar(
+                                  backgroundColor: Colors.pink,
+                                  child: FaIcon(
+                                    FontAwesomeIcons.buildingColumns,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                CircleAvatar(
+                                  backgroundColor: Colors.red,
+                                  child: FaIcon(
+                                    FontAwesomeIcons.toolbox,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                CircleAvatar(
+                                  backgroundColor: Colors.brown,
+                                  child: FaIcon(
+                                    FontAwesomeIcons.laptopCode,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                CircleAvatar(
+                                  backgroundColor: Colors.deepPurple,
+                                  child: FaIcon(
+                                    FontAwesomeIcons.bolt,
+                                    color: Colors.yellow,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         )
                       ],
                     )),
