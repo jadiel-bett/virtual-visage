@@ -142,7 +142,6 @@ class About extends StatelessWidget {
             child: Container(
               height: size.height / 1.5,
               width: size.width * 0.4 - 100,
-              // color: Colors.white,
               child: Stack(
                 alignment: Alignment.center,
                 children: [
