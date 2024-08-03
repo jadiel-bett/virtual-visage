@@ -133,33 +133,29 @@ class _MobileHomeState extends State<MobileHome> {
               SizedBox(
                 height: size.height * 0.06,
               ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(4.0),
-                ),
-                color: Color(0xff64FFDA),
+              InkWell(
+                onTap: () {
+                  method.launchEmail();
+                },
+                hoverColor: Color(0xff64FFDA).withOpacity(0.2),
+                borderRadius: BorderRadius.circular(4.0),
                 child: Container(
                   alignment: Alignment.center,
-                  margin: EdgeInsets.all(0.75),
-                  height: 56.0,
-                  width: 160.0,
+                  height: size.height * 0.09,
+                  width: size.width * 0.3,
                   decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Color(0xff64FFDA),
+                    ),
                     borderRadius: BorderRadius.circular(4.0),
-                    color: Color(0xff0A192F),
                   ),
-                  child: MaterialButton(
-                    onPressed: () {
-                      method.launchEmail();
-                    },
-                    hoverColor: Colors.green,
-                    child: Text(
-                      "Get In Touch",
-                      style: TextStyle(
-                        color: Color(0xff64FFDA),
-                        letterSpacing: 2.75,
-                        wordSpacing: 1.0,
-                        fontSize: 15.0,
-                      ),
+                  child: Text(
+                    "Get In Touch",
+                    style: TextStyle(
+                      color: Color(0xff64FFDA),
+                      letterSpacing: 2.75,
+                      wordSpacing: 1.0,
+                      fontSize: 15.0,
                     ),
                   ),
                 ),
@@ -475,33 +471,31 @@ class _MobileHomeState extends State<MobileHome> {
                       SizedBox(
                         height: size.height * 0.07,
                       ),
+
+                      // Say Hello
                       InkWell(
-                        onTap: () => method.launchEmail(),
-                        child: Card(
-                          elevation: 4.0,
-                          color: Color(0xff64FFDA),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(6.0),
-                          ),
-                          child: Container(
-                            margin: EdgeInsets.all(0.85),
-                            height: size.height * 0.10,
-                            width: size.width * 0.30,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              color: Color(0xff0A192F),
-                              borderRadius: BorderRadius.circular(6.0),
+                        onTap: () {
+                          method.launchEmail();
+                        },
+                        hoverColor: Color(0xff64FFDA).withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(4.0),
+                        child: Container(
+                          alignment: Alignment.center,
+                          height: size.height * 0.09,
+                          width: size.width * 0.3,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Color(0xff64FFDA),
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8.0,
-                              ),
-                              child: Text(
-                                "Say Hello",
-                                style: TextStyle(
-                                  color: Color(0xff64FFDA),
-                                ),
-                              ),
+                            borderRadius: BorderRadius.circular(4.0),
+                          ),
+                          child: Text(
+                            "Say Hello",
+                            style: TextStyle(
+                              color: Color(0xff64FFDA),
+                              letterSpacing: 2.75,
+                              wordSpacing: 1.0,
+                              fontSize: 15.0,
                             ),
                           ),
                         ),

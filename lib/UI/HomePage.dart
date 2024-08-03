@@ -364,7 +364,7 @@ class _HomePageState extends State<HomePage> {
                                   child: Column(
                                     children: [
                                       MainTiitle(
-                                        number: "0.3",
+                                        number: "03.",
                                         text: "Some Things I've Built",
                                       ),
                                       SizedBox(
@@ -411,34 +411,22 @@ class _HomePageState extends State<HomePage> {
                                     Container(
                                       height: size.height * 0.68,
                                       width: size.width - 100,
-                                      // color: Colors.orange,
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
-                                          CustomText(
-                                            text: "0.4 What's Next?",
-                                            textsize: 16.0,
-                                            color: Color(0xff41FBDA),
-                                            letterSpacing: 3.0,
-                                            fontWeight: FontWeight.normal,
+                                          MainTiitle(
+                                            number: "04.",
+                                            text: "What Next",
                                           ),
-                                          SizedBox(
-                                            height: 16.0,
-                                          ),
-                                          CustomText(
-                                            text: "Get In Touch",
-                                            textsize: 42.0,
-                                            color: Colors.white,
-                                            letterSpacing: 3.0,
-                                            fontWeight: FontWeight.w700,
-                                          ),
-                                          SizedBox(height: 16.0),
+                                          SizedBox(height: 20),
                                           Wrap(
                                             children: [
                                               Text(
                                                 "My inbox is always open. Whether you have a question or just want to say hi, I'll try my \nbest to get back to you!",
-                                                textAlign: TextAlign.center,
+                                                textAlign: TextAlign.start,
                                                 style: TextStyle(
                                                   color: Colors.white
                                                       .withOpacity(0.4),
@@ -455,36 +443,28 @@ class _HomePageState extends State<HomePage> {
                                             onTap: () {
                                               method.launchEmail();
                                             },
-                                            child: Card(
-                                              elevation: 4.0,
-                                              color: Color(0xff64FFDA),
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(6.0),
-                                              ),
-                                              child: Container(
-                                                margin: EdgeInsets.all(0.85),
-                                                height: size.height * 0.09,
-                                                width: size.width * 0.10,
-                                                alignment: Alignment.center,
-                                                decoration: BoxDecoration(
-                                                  color: Color(0xff0A192F),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                    6.0,
-                                                  ),
+                                            hoverColor: Color(0xff64FFDA)
+                                                .withOpacity(0.2),
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                            child: Container(
+                                              alignment: Alignment.center,
+                                              height: size.height * 0.09,
+                                              width: size.width * 0.14,
+                                              decoration: BoxDecoration(
+                                                border: Border.all(
+                                                  color: Color(0xff64FFDA),
                                                 ),
-                                                child: Padding(
-                                                  padding: const EdgeInsets
-                                                      .symmetric(
-                                                    horizontal: 8.0,
-                                                  ),
-                                                  child: Text(
-                                                    "Say Hello",
-                                                    style: TextStyle(
-                                                      color: Color(0xff64FFDA),
-                                                    ),
-                                                  ),
+                                                borderRadius:
+                                                    BorderRadius.circular(4.0),
+                                              ),
+                                              child: Text(
+                                                "Say Hello",
+                                                style: TextStyle(
+                                                  color: Color(0xff64FFDA),
+                                                  letterSpacing: 2.75,
+                                                  wordSpacing: 1.0,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                             ),
