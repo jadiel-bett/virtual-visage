@@ -309,14 +309,9 @@ class _MobileHomeState extends State<MobileHome> {
                         height: size.height * 0.5,
                         width: size.width * 0.6,
                         child: Image(
-                          fit: BoxFit.cover,
+                          fit: BoxFit.fitHeight,
                           image: AssetImage("images/pic1.png"),
                         ),
-                      ),
-                      Container(
-                        height: size.height * 0.5,
-                        width: size.width * 0.6,
-                        color: Color(0xff61F9D5).withOpacity(0.5),
                       ),
                     ],
                   ),
@@ -338,7 +333,7 @@ class _MobileHomeState extends State<MobileHome> {
                     width: 12.0,
                   ),
                   CustomText(
-                    text: "Where I've Worked",
+                    text: "Where I've Been",
                     textsize: 26.0,
                     color: Color(0xffCCD6F6),
                     fontWeight: FontWeight.w700,
@@ -411,333 +406,64 @@ class _MobileHomeState extends State<MobileHome> {
                 image: "images/pic2.jpg",
               ),
 
-              SizedBox(
-                height: size.height * 0.07,
-              ),
+              SizedBox(height: size.height * 0.07),
 
               MobileProject(
                 ontab: () {},
                 image: "images/pic3.png",
               ),
 
-              SizedBox(
-                height: size.height * 0.07,
-              ),
+              SizedBox(height: size.height * 0.07),
 
-              MobileProject(
-                ontab: () {},
-                image: "images/pic4.jpg",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic5.jpg",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic6.jpg",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic7.jpg",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic8.jpg",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic10.jpg",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic11.jpg",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic102.gif",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic104.png",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic105.png",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic106.png",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic107.jfif",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic108.jfif",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic109.jfif",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic110.jfif",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
+              // Get in Touch
               Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
-                    width: size.width * 0.42,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic101.png"),
-                    ),
+                  CustomText(
+                    text: "04.",
+                    textsize: 20.0,
+                    color: Color(0xff61F9D5),
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 1,
                   ),
-                  Spacer(),
+                  SizedBox(
+                    width: 12.0,
+                  ),
+                  CustomText(
+                    text: "Get In Touch",
+                    textsize: 26.0,
+                    color: Color(0xffCCD6F6),
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 1,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.01,
+                  ),
                   Container(
-                    width: size.width * 0.42,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic103.png"),
-                    ),
+                    width: size.width * 0.04,
+                    height: 1.10,
+                    color: Color(0xff303C55),
                   ),
                 ],
               ),
 
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              Row(
-                children: [
-                  Container(
-                    width: size.width * 0.44,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic111.gif"),
-                    ),
-                  ),
-                  Spacer(),
-                  Container(
-                    width: size.width * 0.44,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic113.jfif"),
-                    ),
-                  ),
-                ],
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              Row(
-                children: [
-                  Container(
-                    width: size.width * 0.44,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic114.png"),
-                    ),
-                  ),
-                  Spacer(),
-                  Container(
-                    width: size.width * 0.44,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic115.png"),
-                    ),
-                  ),
-                ],
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              Row(
-                children: [
-                  Container(
-                    width: size.width * 0.44,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic116.jfif"),
-                    ),
-                  ),
-                  Spacer(),
-                  Container(
-                    width: size.width * 0.44,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic117.png"),
-                    ),
-                  ),
-                ],
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              Row(
-                children: [
-                  Container(
-                    width: size.width * 0.44,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic118.jpeg"),
-                    ),
-                  ),
-                  Spacer(),
-                  Container(
-                    width: size.width * 0.44,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic119.jpeg"),
-                    ),
-                  ),
-                ],
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              Row(
-                children: [
-                  Container(
-                    width: size.width * 0.44,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic120.png"),
-                    ),
-                  ),
-                  Spacer(),
-                  Container(
-                    width: size.width * 0.44,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic121.png"),
-                    ),
-                  ),
-                ],
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
+              SizedBox(height: 10),
 
               FittedBox(
                 fit: BoxFit.cover,
                 child: Container(
-                  //height: size.aspectRatio,
                   width: size.width,
                   alignment: Alignment.center,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CustomText(
-                        text: "0.4 What's Next?",
-                        textsize: 16.0,
-                        color: Color(0xff41FBDA),
-                        letterSpacing: 3.0,
-                        fontWeight: FontWeight.normal,
-                      ),
-                      SizedBox(
-                        height: 16.0,
-                      ),
-                      CustomText(
-                        text: "Get In Touch",
-                        textsize: 42.0,
-                        color: Colors.white,
-                        letterSpacing: 3.0,
-                        fontWeight: FontWeight.w700,
-                      ),
-                      SizedBox(
-                        height: size.height * 0.04,
-                      ),
                       Wrap(
                         alignment: WrapAlignment.center,
                         children: [
                           Text(
-                            "Although I'm currently looking for SDE-1 opportunities, my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!",
-                            textAlign: TextAlign.center,
+                            "My inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!",
+                            textAlign: TextAlign.start,
                             style: TextStyle(
                               color: Colors.white.withOpacity(0.4),
                               letterSpacing: 0.75,
@@ -749,29 +475,32 @@ class _MobileHomeState extends State<MobileHome> {
                       SizedBox(
                         height: size.height * 0.07,
                       ),
-                      Card(
-                        elevation: 4.0,
-                        color: Color(0xff64FFDA),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(6.0),
-                        ),
-                        child: Container(
-                          margin: EdgeInsets.all(0.85),
-                          height: size.height * 0.10,
-                          width: size.width * 0.30,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            color: Color(0xff0A192F),
+                      InkWell(
+                        onTap: () => method.launchEmail(),
+                        child: Card(
+                          elevation: 4.0,
+                          color: Color(0xff64FFDA),
+                          shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(6.0),
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8.0,
+                          child: Container(
+                            margin: EdgeInsets.all(0.85),
+                            height: size.height * 0.10,
+                            width: size.width * 0.30,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: Color(0xff0A192F),
+                              borderRadius: BorderRadius.circular(6.0),
                             ),
-                            child: Text(
-                              "Say Hello",
-                              style: TextStyle(
-                                color: Color(0xff64FFDA),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8.0,
+                              ),
+                              child: Text(
+                                "Say Hello",
+                                style: TextStyle(
+                                  color: Color(0xff64FFDA),
+                                ),
                               ),
                             ),
                           ),
@@ -782,43 +511,37 @@ class _MobileHomeState extends State<MobileHome> {
                 ),
               ),
 
-              SizedBox(
-                height: size.height * 0.07,
-              ),
+              SizedBox(height: size.height * 0.07),
 
+              // Socials
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   IconButton(
-                    icon: Icon(
-                      FontAwesomeIcons.github,
-                      color: Colors.white,
-                      size: 15.0,
-                    ),
-                    onPressed: () {
-                      method.launchURL("https://github.com/champ96k");
-                    },
-                  ),
+                      icon: FaIcon(FontAwesomeIcons.github),
+                      color: Color(0xffffA8B2D1),
+                      iconSize: 16.0,
+                      onPressed: () {
+                        method.launchURL("https://github.com/jadiel-bett");
+                      }),
                   IconButton(
-                    icon: Icon(
-                      FontAwesomeIcons.linkedin,
-                      color: Colors.white,
-                      size: 15.0,
-                    ),
+                      icon: FaIcon(FontAwesomeIcons.twitter),
+                      color: Color(0xffffA8B2D1),
+                      iconSize: 16.0,
+                      onPressed: () {
+                        method.launchURL(
+                          "https://twitter.com/its_masta_shifu",
+                        );
+                      }),
+                  IconButton(
+                    icon: FaIcon(FontAwesomeIcons.linkedin),
+                    color: Color(0xffffA8B2D1),
                     onPressed: () {
                       method.launchURL(
-                          "https://www.linkedin.com/in/tushar-nikam-a29a97131/");
+                        "https://www.linkedin.com/in/jadiel-bett-5a6101169/",
+                      );
                     },
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      FontAwesomeIcons.twitter,
-                      color: Colors.white,
-                      size: 15.0,
-                    ),
-                    onPressed: () {
-                      method.launchURL("https://twitter.com/champ_96k");
-                    },
+                    iconSize: 16.0,
                   ),
                   IconButton(
                     icon: Icon(
@@ -833,18 +556,15 @@ class _MobileHomeState extends State<MobileHome> {
                 ],
               ),
 
-              SizedBox(
-                height: size.height * 0.07,
-              ),
+              SizedBox(height: size.height * 0.07),
 
               //Footer
               Container(
                 alignment: Alignment.center,
                 height: MediaQuery.of(context).size.height / 6,
                 width: MediaQuery.of(context).size.width,
-                //color: Colors.white,
                 child: Text(
-                  "Designed & Built by Tushar Nikam 💙 Flutter",
+                  "Built by Jadiel Bett 💙 Flutter",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white.withOpacity(0.4),
