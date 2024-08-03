@@ -147,7 +147,7 @@ class About extends StatelessWidget {
                 children: [
                   Positioned(
                     top: size.height * 0.12,
-                    left: size.width * 0.120,
+                    left: size.width * 0.10,
                     child: Card(
                       color: Color(0xff61F9D5),
                       child: Container(
@@ -158,76 +158,18 @@ class About extends StatelessWidget {
                       ),
                     ),
                   ),
-                  CustomImageAnimation()
+                  Container(
+                    height: size.height / 2,
+                    width: size.width / 5,
+                    color: Colors.black54,
+                    child: Image(
+                      fit: BoxFit.cover,
+                      image: AssetImage("images/pic1.png"),
+                    ),
+                  ),
                 ],
               ),
             ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class CustomImageAnimation extends StatefulWidget {
-  CustomImageAnimation({key}) : super(key: key);
-
-  @override
-  _CustomImageAnimationState createState() => _CustomImageAnimationState();
-}
-
-class _CustomImageAnimationState extends State<CustomImageAnimation> {
-  Color customImageColor = Color(0xff61F9D5).withOpacity(0.5);
-  // ignore: unused_field
-  int _enterCounter = 0;
-  // ignore: unused_field
-  int _exitCounter = 0;
-  double x = 0.0;
-  double y = 0.0;
-
-  void _incrementEnter(PointerEvent details) {
-    setState(() {
-      _enterCounter++;
-    });
-  }
-
-  void _incrementExit(PointerEvent details) {
-    setState(() {
-      customImageColor = Color(0xff61F9D5).withOpacity(0.2);
-      _exitCounter++;
-    });
-  }
-
-  void _updateLocation(PointerEvent details) {
-    setState(() {
-      customImageColor = Colors.transparent;
-      x = details.position.dx;
-      y = details.position.dy;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    return MouseRegion(
-      onEnter: _incrementEnter,
-      onHover: _updateLocation,
-      onExit: _incrementExit,
-      child: Stack(
-        children: [
-          Container(
-            height: size.height / 2,
-            width: size.width / 5,
-            color: Colors.black54,
-            child: Image(
-              fit: BoxFit.cover,
-              image: AssetImage("images/pic1.png"),
-            ),
-          ),
-          Container(
-            height: size.height / 2,
-            width: size.width / 5,
-            color: customImageColor,
           ),
         ],
       ),
