@@ -368,15 +368,15 @@ class _HomePageState extends State<HomePage> {
                                       height: size.height * 0.04,
                                     ),
                                     FeatureProject(
-                                      imagePath: "images/pic9.jpg",
+                                      imagePath: "images/count.png",
                                       ontab: () {
                                         method.launchURL(
-                                          "https://github.com/champ96k/WhatsApp--UI-Clone",
+                                          "https://play.google.com/store/apps/details?id=com.jadielbett.count_game",
                                         );
                                       },
                                       projectDesc:
-                                          "A Mobile app for both Android and IOS. View your Status, Chat, and call history. The purpose of this projcet is to Learn Flutter complex UI Design.",
-                                      projectTitle: "WhatsaApp UI Clone",
+                                          "Fun and challenging counting game that will put your brain to the test! Count game is a free math-based game where the object of the game is to be the first one to get to a specific number i.e., '20', from '1', by counting up in predetermined steps.",
+                                      projectTitle: "Count Game",
                                       tech1: "Flutter",
                                       tech2: "Dart",
                                       tech3: "Flutter UI",
