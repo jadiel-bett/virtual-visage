@@ -132,36 +132,31 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 16.0),
-                      child: Card(
-                        elevation: 4.0,
-                        color: Color(0xff64FFDA),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(6.0),
-                        ),
+                      child: InkWell(
+                        onTap: () {
+                          method.launchURL(
+                            "https://drive.google.com/file/d/1OfWoBxVtmyRC9vfgFedjZyoOs6PD488e/view",
+                          );
+                        },
+                        hoverColor: Color(0xff64FFDA).withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(4.0),
                         child: Container(
-                          margin: EdgeInsets.all(0.85),
-                          height: size.height * 0.07,
-                          width: size.height * 0.20,
                           alignment: Alignment.center,
+                          height: size.height * 0.07,
+                          width: size.width * 0.1,
                           decoration: BoxDecoration(
-                            color: Color(0xff0A192F),
-                            borderRadius: BorderRadius.circular(6.0),
+                            border: Border.all(
+                              color: Color(0xff64FFDA),
+                            ),
+                            borderRadius: BorderRadius.circular(4.0),
                           ),
-                          child: TextButton(
-                            onPressed: () {
-                              method.launchURL(
-                                  "https://drive.google.com/file/d/1OfWoBxVtmyRC9vfgFedjZyoOs6PD488e/view?usp=sharing");
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8.0,
-                              ),
-                              child: Text(
-                                "Resume",
-                                style: TextStyle(
-                                  color: Color(0xff64FFDA),
-                                ),
-                              ),
+                          child: Text(
+                            "Resume",
+                            style: TextStyle(
+                              color: Color(0xff64FFDA),
+                              letterSpacing: 2.75,
+                              wordSpacing: 1.0,
+                              fontSize: 15.0,
                             ),
                           ),
                         ),
