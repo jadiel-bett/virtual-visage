@@ -404,13 +404,6 @@ class _MobileHomeState extends State<MobileHome> {
 
               SizedBox(height: size.height * 0.07),
 
-              MobileProject(
-                ontab: () {},
-                image: "images/pic3.png",
-              ),
-
-              SizedBox(height: size.height * 0.07),
-
               // Get in Touch
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,

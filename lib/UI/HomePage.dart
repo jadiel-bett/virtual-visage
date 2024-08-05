@@ -91,7 +91,9 @@ class _HomePageState extends State<HomePage> {
                         size: 32.0,
                         color: Color(0xff64FFDA),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        _scrollToIndex(0);
+                      },
                     ),
                     Spacer(),
                     Expanded(
@@ -355,46 +357,47 @@ class _HomePageState extends State<HomePage> {
 
                               //Some Things I've Built Main Project
                               _wrapScrollTag(
-                                  index: 2,
-                                  child: Column(
-                                    children: [
-                                      MainTiitle(
-                                        number: "03.",
-                                        text: "Some Things I've Built",
-                                      ),
-                                      SizedBox(
-                                        height: size.height * 0.04,
-                                      ),
-                                      FeatureProject(
-                                        imagePath: "images/pic9.jpg",
-                                        ontab: () {
-                                          method.launchURL(
-                                            "https://github.com/champ96k/WhatsApp--UI-Clone",
-                                          );
-                                        },
-                                        projectDesc:
-                                            "A Mobile app for both Android and IOS. View your Status, Chat, and call history. The purpose of this projcet is to Learn Flutter complex UI Design.",
-                                        projectTitle: "WhatsaApp UI Clone",
-                                        tech1: "Flutter",
-                                        tech2: "Dart",
-                                        tech3: "Flutter UI",
-                                      ),
-                                      FeatureProject(
-                                        imagePath: "images/pic2.jpg",
-                                        ontab: () {
-                                          method.launchURL(
-                                            "https://github.com/champ96k/Flutter-Blog-App-using-Firebase",
-                                          );
-                                        },
-                                        projectDesc:
-                                            "A blog application using Flutter and firebase, In this project implement Firebase CURD operation, User can add post as well see all the post.",
-                                        projectTitle: "Blog Application",
-                                        tech1: "Dart",
-                                        tech2: "Flutter",
-                                        tech3: "Firebase",
-                                      ),
-                                    ],
-                                  )),
+                                index: 2,
+                                child: Column(
+                                  children: [
+                                    MainTiitle(
+                                      number: "03.",
+                                      text: "Some Things I've Built",
+                                    ),
+                                    SizedBox(
+                                      height: size.height * 0.04,
+                                    ),
+                                    FeatureProject(
+                                      imagePath: "images/pic9.jpg",
+                                      ontab: () {
+                                        method.launchURL(
+                                          "https://github.com/champ96k/WhatsApp--UI-Clone",
+                                        );
+                                      },
+                                      projectDesc:
+                                          "A Mobile app for both Android and IOS. View your Status, Chat, and call history. The purpose of this projcet is to Learn Flutter complex UI Design.",
+                                      projectTitle: "WhatsaApp UI Clone",
+                                      tech1: "Flutter",
+                                      tech2: "Dart",
+                                      tech3: "Flutter UI",
+                                    ),
+                                    FeatureProject(
+                                      imagePath: "images/pic2.jpg",
+                                      ontab: () {
+                                        method.launchURL(
+                                          "https://github.com/champ96k/Flutter-Blog-App-using-Firebase",
+                                        );
+                                      },
+                                      projectDesc:
+                                          "A blog application using Flutter and firebase, In this project implement Firebase CURD operation, User can add post as well see all the post.",
+                                      projectTitle: "Blog Application",
+                                      tech1: "Dart",
+                                      tech2: "Flutter",
+                                      tech3: "Firebase",
+                                    ),
+                                  ],
+                                ),
+                              ),
 
                               SizedBox(height: 6.0),
 
@@ -408,7 +411,7 @@ class _HomePageState extends State<HomePage> {
                                       width: size.width - 100,
                                       child: Column(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                            MainAxisAlignment.start,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [

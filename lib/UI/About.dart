@@ -146,24 +146,24 @@ class About extends StatelessWidget {
                 alignment: Alignment.center,
                 children: [
                   Positioned(
-                    top: size.height * 0.12,
-                    left: size.width * 0.10,
+                    top: size.height * 0.1,
+                    left: size.width * 0.05,
                     child: Card(
                       color: Color(0xff61F9D5),
                       child: Container(
                         margin: EdgeInsets.all(2.75),
                         height: size.height / 2,
-                        width: size.width / 5,
+                        width: size.width / 4.5,
                         color: Color(0xff0A192F),
                       ),
                     ),
                   ),
                   Container(
                     height: size.height / 2,
-                    width: size.width / 5,
+                    width: size.width / 4.5,
                     color: Colors.black54,
                     child: Image(
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fitHeight,
                       image: AssetImage("images/pic1.png"),
                     ),
                   ),
