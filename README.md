@@ -1,86 +1,36 @@
+Here’s a suitable content structure for the `README.md` file for your personal portfolio website:
 
-## Dev Portfolio
+---
 
+# Personal Portfolio Website - Jadiel Bett Kipkosgei
 
-Software Developer Portfolio Template that helps you showcase your work and skills as a software developer. A lightweight, customizable single-page personal portfolio website template built using Dart, Flutter web.
+Welcome to my personal portfolio website, where I showcase my skills, projects, and experience as a Mechatronic Engineer and Software Developer. The site is built using [Flutter](https://flutter.dev/) and highlights my work, including hands-on projects, technical expertise, and my career journey.
+[Click here](https://master--jadielbett.netlify.app/) to look at the live demo.
 
+## Features
 
+- **About Me:** Overview of my academic and professional background, highlighting my skills in mechatronics, software development, and system automation.
+- **Projects:** Detailed descriptions of key projects, including my final year project on designing and fabricating a hedge trimming robot, mobile app development, and other engineering projects.
+- **Skills:** A list of technical proficiencies, such as Flutter, Arduino, Autodesk Inventor, C++, Python, and control systems design.
+- **Resume Download:** Option to download my latest resume/CV.
+- **Contact Information:** Easy access to contact details and links to my LinkedIn, GitHub, and other social platforms.
 
+## Technologies Used
 
-## To view a live demo,[Click Here](https://champ96k.github.io).
+- **Frontend:** Built entirely using Flutter, ensuring smooth, cross-platform performance across web and mobile.
+- **Backend (if applicable):** Any API or backend services integrated into the website.
+- **Hosting:** Details on how the site is hosted, e.g., Firebase Hosting, GitHub Pages, etc.
 
+## How to Use
 
+Simply navigate through the website to explore various sections, projects, and my experience. If you'd like to get in touch, head over to the **Contact** section for details.
 
-##  Platforms
+## Contributing
 
--  [X] Andoid
--  [X] Windows
--  [X] linux
--  [ ] MacOS (probably)
--  [X] IOs
-   
-   
-##  Wanna Contribute? 🚀
-  You can contribute by doing one of the following:
-  - Starring the repository ⭐
-  - Forking the repository 🍴
-  - Creating an Issue ❌
-  - Creating a Pull Request ✔
+Currently, this is a personal project, and contributions are not open. However, feedback and suggestions are always welcome!
 
+## License
 
-## Web Set up
-  Run the following commands to use the latest version of the Flutter SDK from the beta channel and enable web support:
+This project is licensed under the [MIT License](LICENSE).
 
-```bash
-flutter channel beta
-```
-```bash
-flutter upgrade
-```
-```bash
-flutter config --enable-web
-```
-### Create and run
-  To create a new app for use with web support (in addition to mobile support), run the following commands, substituting myap   with the name of your project:
-
-```bash
-flutter create myapp
-```
-```bash
- cd myapp
- ```
-To serve your app from localhost in Chrome, enter the following from the top of the package:
-
-```bash
-flutter run -d chrome
-```
-
-### Add web support to an existing app
-To add web support to an existing project, run the following command in a terminal from the root project directory:
-```zsh
- flutter create .
- ```
-To serve your app from localhost in Chrome, enter the following from the top of the package:
-
-``` bash
- flutter run -d chrome
-```
-### Build
-Run the following command to generate a release build:
-
-```bash
- flutter build web
- ```
- 
- 
-***
-
-
-
-
-##### Design credit : [Brittany Chiang](https://www.linkedin.com/in/bchiang7/).
-
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
