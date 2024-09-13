@@ -278,8 +278,7 @@ class _HomePageState extends State<HomePage> {
                                     height: 4.0,
                                   ),
                                   CustomText(
-                                    text:
-                                        "I build things for the Android and web.",
+                                    text: "I build things for Android and web.",
                                     textsize: 56.0,
                                     color: Color(0xffCCD6F6).withOpacity(0.6),
                                     fontWeight: FontWeight.w700,
@@ -370,21 +369,23 @@ class _HomePageState extends State<HomePage> {
                                     FeatureProject(
                                       imagePath: "images/count.png",
                                       ontab: () {
+                                        print('Opening play store');
                                         method.launchURL(
                                           "https://play.google.com/store/apps/details?id=com.jadielbett.count_game",
                                         );
                                       },
                                       projectDesc:
-                                          "Fun and challenging counting game that will put your brain to the test! Count game is a free math-based game where the object of the game is to be the first one to get to a specific number i.e., '20', from '1', by counting up in predetermined steps.",
+                                          "Fun and challenging counting game that will put your brain to the test!",
                                       projectTitle: "Count Game",
                                       tech1: "Flutter",
                                       tech2: "Dart",
                                       tech3: "Flutter UI",
+                                      icon: FontAwesomeIcons.play,
                                     ),
                                     FeatureProject(
                                       imagePath: "images/pic2.jpg",
-                                      ontab: () {
-                                        method.launchURL(
+                                      ontab: () async {
+                                        await method.launchURL(
                                           "https://github.com/champ96k/Flutter-Blog-App-using-Firebase",
                                         );
                                       },
@@ -394,6 +395,7 @@ class _HomePageState extends State<HomePage> {
                                       tech1: "Dart",
                                       tech2: "Flutter",
                                       tech3: "Firebase",
+                                      icon: FontAwesomeIcons.github,
                                     ),
                                   ],
                                 ),

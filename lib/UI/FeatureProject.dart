@@ -10,15 +10,18 @@ class FeatureProject extends StatelessWidget {
   final String tech2;
   final String tech3;
   final Function ontab;
+  final IconData icon;
 
-  FeatureProject(
-      {required this.imagePath,
-      required this.ontab,
-      required this.projectDesc,
-      required this.projectTitle,
-      required this.tech1,
-      required this.tech2,
-      required this.tech3});
+  FeatureProject({
+    required this.imagePath,
+    required this.ontab,
+    required this.projectDesc,
+    required this.projectTitle,
+    required this.tech1,
+    required this.tech2,
+    required this.tech3,
+    required this.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +79,7 @@ class FeatureProject extends StatelessWidget {
                   ),
                 ),
 
-                // Project Tiitle
+                // Project Title
                 Positioned(
                   top: 16.0,
                   right: 10.0,
@@ -107,7 +110,6 @@ class FeatureProject extends StatelessWidget {
                   child: Container(
                     height: size.height * 0.08,
                     width: size.width * 0.25,
-                    // color: Colors.indigo,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
@@ -143,19 +145,18 @@ class FeatureProject extends StatelessWidget {
                   ),
                 ),
 
-                // Gitub Link
+                // Link
                 Positioned(
                   top: size.height * 0.42,
                   right: 10.0,
                   child: Container(
                     height: size.height * 0.08,
                     width: size.width * 0.25,
-                    // color: Colors.indigo,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         IconButton(
-                          icon: FaIcon(FontAwesomeIcons.github),
+                          icon: FaIcon(icon),
                           color: Colors.white.withOpacity(0.3),
                           onPressed: () => ontab,
                         ),
