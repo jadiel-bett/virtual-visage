@@ -1,7 +1,3 @@
-Here’s a suitable content structure for the `README.md` file for your personal portfolio website:
-
----
-
 # Personal Portfolio Website - Jadiel Bett Kipkosgei
 
 Welcome to my personal portfolio website, where I showcase my skills, projects, and experience as a Mechatronic Engineer and Software Developer. The site is built using [Flutter](https://flutter.dev/) and highlights my work, including hands-on projects, technical expertise, and my career journey.
@@ -18,8 +14,7 @@ Welcome to my personal portfolio website, where I showcase my skills, projects, 
 ## Technologies Used
 
 - **Frontend:** Built entirely using Flutter, ensuring smooth, cross-platform performance across web and mobile.
-- **Backend (if applicable):** Any API or backend services integrated into the website.
-- **Hosting:** Details on how the site is hosted, e.g., Firebase Hosting, GitHub Pages, etc.
+- **Hosting:** The site is hosted on Netlify
 
 ## How to Use
 
