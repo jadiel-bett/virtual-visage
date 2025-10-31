@@ -24,25 +24,26 @@ class CustomDrawer extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Color(0xff0A192F),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton(
-                    icon: Icon(
-                      Icons.change_history,
-                      size: 32.0,
-                      color: Color(0xff64FFDA),
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
+            Container(
+              height: kToolbarHeight, // Same height as AppBar
+              color: Color(0xff0A192F),
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: IconButton(
+                  icon: Icon(
+                    Icons.change_history,
+                    size: 32.0,
+                    color: Color(0xff64FFDA),
                   ),
-                ],
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
               ),
+            ),
+            Divider(
+              color: Color(0xff64FFDA).withAlpha(51),
+              thickness: 1.0,
             ),
             ListTile(
               title: AppBarTitle(text: 'About'),
