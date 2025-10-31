@@ -140,7 +140,7 @@ class _HomePageState extends State<HomePage> {
                             "https://drive.google.com/file/d/1OfWoBxVtmyRC9vfgFedjZyoOs6PD488e/view",
                           );
                         },
-                        hoverColor: Color(0xff64FFDA).withOpacity(0.2),
+                        hoverColor: Color(0xff64FFDA).withAlpha(51),
                         borderRadius: BorderRadius.circular(4.0),
                         child: Container(
                           alignment: Alignment.center,
@@ -223,7 +223,7 @@ class _HomePageState extends State<HomePage> {
                         child: Container(
                           height: size.height * 0.20,
                           width: 2,
-                          color: Colors.grey.withOpacity(0.4),
+                          color: Colors.grey.withAlpha(102),
                         ),
                       ),
                     ],
@@ -280,7 +280,7 @@ class _HomePageState extends State<HomePage> {
                                   CustomText(
                                     text: "I build things for Android and web.",
                                     textsize: 56.0,
-                                    color: Color(0xffCCD6F6).withOpacity(0.6),
+                                    color: Color(0xffCCD6F6).withAlpha(153),
                                     fontWeight: FontWeight.w700,
                                     letterSpacing: 1.0,
                                   ),
@@ -309,8 +309,7 @@ class _HomePageState extends State<HomePage> {
                                     onTap: () {
                                       method.launchEmail();
                                     },
-                                    hoverColor:
-                                        Color(0xff64FFDA).withOpacity(0.2),
+                                    hoverColor: Color(0xff64FFDA).withAlpha(51),
                                     borderRadius: BorderRadius.circular(4.0),
                                     child: Container(
                                       alignment: Alignment.center,
@@ -429,7 +428,7 @@ class _HomePageState extends State<HomePage> {
                                                 textAlign: TextAlign.start,
                                                 style: TextStyle(
                                                   color: Colors.white
-                                                      .withOpacity(0.4),
+                                                      .withAlpha(102),
                                                   letterSpacing: 0.75,
                                                   fontSize: 17.0,
                                                 ),
@@ -443,8 +442,8 @@ class _HomePageState extends State<HomePage> {
                                             onTap: () {
                                               method.launchEmail();
                                             },
-                                            hoverColor: Color(0xff64FFDA)
-                                                .withOpacity(0.2),
+                                            hoverColor:
+                                                Color(0xff64FFDA).withAlpha(51),
                                             borderRadius:
                                                 BorderRadius.circular(4.0),
                                             child: Container(
@@ -482,7 +481,7 @@ class _HomePageState extends State<HomePage> {
                                       child: Text(
                                         "© 2024 Jadiel Bett",
                                         style: TextStyle(
-                                          color: Colors.white.withOpacity(0.4),
+                                          color: Colors.white.withAlpha(102),
                                           letterSpacing: 1.75,
                                           fontSize: 14.0,
                                         ),
@@ -511,7 +510,7 @@ class _HomePageState extends State<HomePage> {
                         child: Text(
                           "jadielbett@gmail.com",
                           style: TextStyle(
-                            color: Colors.grey.withOpacity(0.6),
+                            color: Colors.grey.withAlpha(153),
                             letterSpacing: 3.0,
                             fontWeight: FontWeight.w700,
                           ),
@@ -522,7 +521,7 @@ class _HomePageState extends State<HomePage> {
                         child: Container(
                           height: 100,
                           width: 2,
-                          color: Colors.grey.withOpacity(0.4),
+                          color: Colors.grey.withAlpha(102),
                         ),
                       ),
                     ],

@@ -7,7 +7,7 @@ class About extends StatelessWidget {
       children: [
         Icon(
           Icons.skip_next,
-          color: Color(0xff64FFDA).withOpacity(0.6),
+          color: Color(0xff64FFDA).withAlpha(153),
           size: 14.0,
         ),
         SizedBox(

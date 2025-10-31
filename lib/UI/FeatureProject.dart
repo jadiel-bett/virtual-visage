@@ -69,7 +69,7 @@ class FeatureProject extends StatelessWidget {
                           child: CustomText(
                             text: projectDesc,
                             textsize: 16.0,
-                            color: Colors.white.withOpacity(0.4),
+                            color: Colors.white.withAlpha(102),
                             letterSpacing: 0.75,
                             fontWeight: FontWeight.normal,
                           ),
@@ -157,7 +157,7 @@ class FeatureProject extends StatelessWidget {
                       children: [
                         IconButton(
                           icon: FaIcon(icon),
-                          color: Colors.white.withOpacity(0.3),
+                          color: Colors.white.withAlpha(76),
                           onPressed: () => ontab,
                         ),
                       ],

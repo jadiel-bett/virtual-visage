@@ -20,8 +20,8 @@ class Method {
   }
 
   launchEmail() async {
-    if (await canLaunchUrl(Uri.parse("mailto:champ96k@gmail.com"))) {
-      await launchUrl(Uri.parse("mailto:champ96k@gmail.com"));
+    if (await canLaunchUrl(Uri.parse("mailto:jadielbett@gmail.com"))) {
+      await launchUrl(Uri.parse("mailto:jadielbett@gmail.com"));
     } else {
       throw 'Could not launchUrl';
     }
