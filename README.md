@@ -290,7 +290,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Jadiel Bett Kipkosgei**
 
-- Portfolio: [https://master--jadielbett.netlify.app/](https://master--jadielbett.netlify.app/)
+- Portfolio: [https://jadielbett.com/](Jadiel Bett)
 - LinkedIn: [Your LinkedIn Profile](https://linkedin.com/in/yourprofile)
 - GitHub: [Your GitHub Profile](https://github.com/yourusername)
 - Email: your.email@example.com
