@@ -113,8 +113,8 @@ class MobileHomeState extends ConsumerState<MobileHome> {
         child: SingleChildScrollView(
           controller: _autoScrollController,
           child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -629,6 +629,7 @@ class MobileHomeState extends ConsumerState<MobileHome> {
             ],
           ),
         ),
+      ),
       ),
     );
   }

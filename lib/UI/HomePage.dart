@@ -266,17 +266,17 @@ class HomePageState extends ConsumerState<HomePage> {
                 ),
 
                 // Content
-                Theme(
-                  data: ThemeData(
-                    scrollbarTheme: ScrollbarThemeData(
-                      thumbVisibility: WidgetStateProperty.all(true),
-                      thickness: WidgetStateProperty.all(5),
-                      thumbColor: WidgetStateProperty.all(Color(0xff61F9D5)),
-                      radius: const Radius.circular(10),
-                      minThumbLength: 100,
+                Expanded(
+                  child: Theme(
+                    data: ThemeData(
+                      scrollbarTheme: ScrollbarThemeData(
+                        thumbVisibility: WidgetStateProperty.all(true),
+                        thickness: WidgetStateProperty.all(5),
+                        thumbColor: WidgetStateProperty.all(Color(0xff61F9D5)),
+                        radius: const Radius.circular(10),
+                        minThumbLength: 100,
+                      ),
                     ),
-                  ),
-                  child: Expanded(
                     child: Container(
                       height: size.height - 82,
                       child: Padding(
@@ -522,6 +522,7 @@ class HomePageState extends ConsumerState<HomePage> {
                     ),
                   ),
                 ),
+                ),
 
                 // Socials (right)
                 Container(
@@ -531,7 +532,7 @@ class HomePageState extends ConsumerState<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       RotatedBox(
-                        quarterTurns: 45,
+                        quarterTurns: 1,
                         child: Text(
                           "jadielbett@gmail.com",
                           style: TextStyle(
