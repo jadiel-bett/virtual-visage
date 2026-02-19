@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -10,6 +11,7 @@ import '/Widget/CustomText.dart';
 import '/Widget/MainTiitle.dart';
 import '/providers/projects_provider.dart';
 import '/models/project_model.dart';
+import '/utils/smooth_scroll_physics.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 class HomePage extends ConsumerStatefulWidget {
@@ -279,9 +281,18 @@ class HomePageState extends ConsumerState<HomePage> {
                       height: size.height - 82,
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                        child: CustomScrollView(
-                          controller: _autoScrollController,
-                          slivers: <Widget>[
+                        child: ScrollConfiguration(
+                          behavior: ScrollConfiguration.of(context).copyWith(
+                            dragDevices: {
+                              PointerDeviceKind.touch,
+                              PointerDeviceKind.mouse,
+                              PointerDeviceKind.trackpad,
+                            },
+                            physics: const SmoothScrollPhysics(),
+                          ),
+                          child: CustomScrollView(
+                            controller: _autoScrollController,
+                            slivers: <Widget>[
                             SliverList(
                                 delegate: SliverChildListDelegate([
                               Column(

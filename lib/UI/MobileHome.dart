@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -7,6 +8,7 @@ import '/Widget/CustomText.dart';
 import '/Widget/MobileProject.dart';
 import '/Widget/MobileWork.dart';
 import '/providers/projects_provider.dart';
+import '/utils/smooth_scroll_physics.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 class MobileHome extends ConsumerStatefulWidget {
@@ -99,9 +101,18 @@ class MobileHomeState extends ConsumerState<MobileHome> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        controller: _autoScrollController,
-        child: Padding(
+      body: ScrollConfiguration(
+        behavior: ScrollConfiguration.of(context).copyWith(
+          dragDevices: {
+            PointerDeviceKind.touch,
+            PointerDeviceKind.mouse,
+            PointerDeviceKind.trackpad,
+          },
+          physics: const SmoothScrollPhysics(),
+        ),
+        child: SingleChildScrollView(
+          controller: _autoScrollController,
+          child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
