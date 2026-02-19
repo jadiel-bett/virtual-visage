@@ -84,15 +84,19 @@ class MobileHomeState extends ConsumerState<MobileHome> {
       appBar: AppBar(
         backgroundColor: Color(0xff0A192F),
         elevation: 0.0,
-        title: IconButton(
-          icon: Icon(
-            Icons.change_history,
-            size: 32.0,
-            color: Color(0xff64FFDA),
+        title: Semantics(
+          label: 'Navigate to home',
+          button: true,
+          child: IconButton(
+            icon: Icon(
+              Icons.change_history,
+              size: 32.0,
+              color: Color(0xff64FFDA),
+            ),
+            onPressed: () {
+              _scrollToIndex(0);
+            },
           ),
-          onPressed: () {
-            _scrollToIndex(0);
-          },
         ),
       ),
       body: SingleChildScrollView(

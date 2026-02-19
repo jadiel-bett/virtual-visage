@@ -98,15 +98,19 @@ class HomePageState extends ConsumerState<HomePage> {
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
                   children: [
-                    IconButton(
-                      icon: Icon(
-                        Icons.change_history,
-                        size: 32.0,
-                        color: Color(0xff64FFDA),
+                    Semantics(
+                      label: 'Navigate to home',
+                      button: true,
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.change_history,
+                          size: 32.0,
+                          color: Color(0xff64FFDA),
+                        ),
+                        onPressed: () {
+                          _scrollToIndex(0);
+                        },
                       ),
-                      onPressed: () {
-                        _scrollToIndex(0);
-                      },
                     ),
                     Spacer(),
                     Expanded(
@@ -121,23 +125,39 @@ class HomePageState extends ConsumerState<HomePage> {
                             },
                             tabs: [
                               Tab(
-                                child: AppBarTitle(
-                                  text: 'About',
+                                child: Semantics(
+                                  label: 'Navigate to about',
+                                  button: true,
+                                  child: AppBarTitle(
+                                    text: 'About',
+                                  ),
                                 ),
                               ),
                               Tab(
-                                child: AppBarTitle(
-                                  text: 'Experience',
+                                child: Semantics(
+                                  label: 'Navigate to experience',
+                                  button: true,
+                                  child: AppBarTitle(
+                                    text: 'Experience',
+                                  ),
                                 ),
                               ),
                               Tab(
-                                child: AppBarTitle(
-                                  text: 'Projects',
+                                child: Semantics(
+                                  label: 'Navigate to projects',
+                                  button: true,
+                                  child: AppBarTitle(
+                                    text: 'Projects',
+                                  ),
                                 ),
                               ),
                               Tab(
-                                child: AppBarTitle(
-                                  text: 'Contact Us',
+                                child: Semantics(
+                                  label: 'Navigate to contact',
+                                  button: true,
+                                  child: AppBarTitle(
+                                    text: 'Contact Us',
+                                  ),
                                 ),
                               ),
                             ],
