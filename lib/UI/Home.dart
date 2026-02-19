@@ -3,7 +3,7 @@ import '/UI/HomePage.dart';
 import '/UI/MobileHome.dart';
 
 class Home extends StatefulWidget {
-  const Home({key});
+  const Home({super.key});
 
   @override
   HomeState createState() => HomeState();
