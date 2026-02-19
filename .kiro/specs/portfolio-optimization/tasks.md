@@ -6,8 +6,8 @@ This implementation plan transforms the Flutter portfolio from a StatefulWidget-
 
 ## Tasks
 
-- [ ] 1. SDK and dependency upgrades
-  - [ ] 1.1 Upgrade Flutter SDK to 3.24+ and update pubspec.yaml
+- [x] 1. SDK and dependency upgrades
+  - [x] 1.1 Upgrade Flutter SDK to 3.24+ and update pubspec.yaml
     - Update Flutter SDK to version 3.24.0 or higher
     - Update Dart SDK constraint to '>=3.5.0 <4.0.0'
     - Add flutter_riverpod: ^2.5.1, riverpod_annotation: ^2.3.5
@@ -16,7 +16,7 @@ This implementation plan transforms the Flutter portfolio from a StatefulWidget-
     - Add dev dependencies: riverpod_generator, build_runner
     - _Requirements: 3.1, 3.2, 3.4_
   
-  - [ ] 1.2 Fix deprecated API usage and verify compilation
+  - [x] 1.2 Fix deprecated API usage and verify compilation
     - Replace deprecated button widgets (FlatButton → TextButton, RaisedButton → ElevatedButton)
     - Update constructor key parameters to use super.key
     - Update url_launcher API calls to latest version
@@ -24,22 +24,22 @@ This implementation plan transforms the Flutter portfolio from a StatefulWidget-
     - Verify flutter build web --release completes successfully
     - _Requirements: 3.3, 3.5_
 
-- [ ] 2. Create data models and providers
-  - [ ] 2.1 Create ProjectModel class with immutable data structure
+- [-] 2. Create data models and providers
+  - [x] 2.1 Create ProjectModel class with immutable data structure
     - Create lib/models/project_model.dart
     - Define ProjectModel class with id, title, description, imageUrl, technologies, githubUrl, liveUrl, priority, category fields
     - Define ProjectCategory enum (featured, other)
     - Implement copyWith method for immutability
     - _Requirements: 2.1, 6.2_
   
-  - [ ] 2.2 Create ExperienceModel class with immutable data structure
+  - [x] 2.2 Create ExperienceModel class with immutable data structure
     - Create lib/models/experience_model.dart
     - Define ExperienceModel class with id, company, position, duration, location, responsibilities, technologies, type, icon, iconColor fields
     - Define ExperienceType enum (mechatronics, software, hybrid)
     - Implement copyWith method for immutability
     - _Requirements: 2.2, 4.2_
   
-  - [ ] 2.3 Create projects data provider with featured projects
+  - [x] 2.3 Create projects data provider with featured projects
     - Create lib/providers/projects_provider.dart
     - Define projectsProvider as Provider<List<ProjectModel>>
     - Add Stima Tracker project (priority: 1, category: featured, technologies: Flutter, Firebase, IoT, ESP32)
@@ -49,7 +49,7 @@ This implementation plan transforms the Flutter portfolio from a StatefulWidget-
     - Add Blog App project (category: other, lower priority)
     - _Requirements: 2.1, 5.1, 5.2, 5.3, 5.4, 5.5, 6.2, 6.5_
   
-  - [ ] 2.4 Create experiences data provider with hybrid background narrative
+  - [-] 2.4 Create experiences data provider with hybrid background narrative
     - Create lib/providers/experiences_provider.dart
     - Define experiencesProvider as Provider<List<ExperienceModel>>
     - Add experience entries highlighting Mechatronics and Software skills
