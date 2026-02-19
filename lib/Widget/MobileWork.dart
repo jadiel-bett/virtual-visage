@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'MobileWorkBox.dart';
+import '/providers/experiences_provider.dart';
+import '/Widget/Workbox.dart';
 
-class MobileWork extends StatefulWidget {
-  @override
-  _MobileWorkState createState() => _MobileWorkState();
-}
+class MobileWork extends ConsumerWidget {
+  const MobileWork({super.key});
 
-class _MobileWorkState extends State<MobileWork> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final Size size = MediaQuery.of(context).size;
+    final experiences = ref.watch(experiencesProvider);
+    
     return ConstrainedBox(
       constraints: BoxConstraints.tightFor(
         width: size.width,
@@ -37,43 +38,30 @@ class _MobileWorkState extends State<MobileWork> {
                       child: Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.pink,
+                          children: experiences.map((exp) {
+                            return CircleAvatar(
+                              backgroundColor: exp.iconColor,
                               child: FaIcon(
-                                FontAwesomeIcons.buildingColumns,
+                                exp.icon,
                                 color: Colors.white,
                               ),
-                            ),
-                            CircleAvatar(
-                              backgroundColor: Colors.red,
-                              child: FaIcon(
-                                FontAwesomeIcons.toolbox,
-                                color: Colors.white,
-                              ),
-                            ),
-                            CircleAvatar(
-                              backgroundColor: Colors.brown,
-                              child: FaIcon(
-                                FontAwesomeIcons.laptopCode,
-                                color: Colors.white,
-                              ),
-                            ),
-                            CircleAvatar(
-                              backgroundColor: Colors.deepPurple,
-                              child: FaIcon(
-                                FontAwesomeIcons.bolt,
-                                color: Colors.yellow,
-                              ),
-                            ),
-                          ],
+                            );
+                          }).toList(),
                         ),
                       ),
                     )
                   ],
                 )),
           ),
-          Expanded(flex: 4, child: MobileWorkBox()),
+          Expanded(
+            flex: 4,
+            child: ListView.builder(
+              itemCount: experiences.length,
+              itemBuilder: (context, index) {
+                return Workbox(experience: experiences[index]);
+              },
+            ),
+          ),
         ],
       ),
     );

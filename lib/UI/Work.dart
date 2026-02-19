@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '/Widget/CustomText.dart';
 import '/Widget/Workbox.dart';
+import '/providers/experiences_provider.dart';
 
-class Work extends StatefulWidget {
-  @override
-  _WorkState createState() => _WorkState();
-}
+class Work extends ConsumerWidget {
+  const Work({super.key});
 
-class _WorkState extends State<Work> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final Size size = MediaQuery.of(context).size;
+    final experiences = ref.watch(experiencesProvider);
+    
     return ConstrainedBox(
       constraints: BoxConstraints.tightFor(
         width: size.width,
@@ -73,36 +74,15 @@ class _WorkState extends State<Work> {
                           child: Center(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                CircleAvatar(
-                                  backgroundColor: Colors.pink,
+                              children: experiences.map((exp) {
+                                return CircleAvatar(
+                                  backgroundColor: exp.iconColor,
                                   child: FaIcon(
-                                    FontAwesomeIcons.buildingColumns,
+                                    exp.icon,
                                     color: Colors.white,
                                   ),
-                                ),
-                                CircleAvatar(
-                                  backgroundColor: Colors.red,
-                                  child: FaIcon(
-                                    FontAwesomeIcons.toolbox,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                CircleAvatar(
-                                  backgroundColor: Colors.brown,
-                                  child: FaIcon(
-                                    FontAwesomeIcons.laptopCode,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                CircleAvatar(
-                                  backgroundColor: Colors.deepPurple,
-                                  child: FaIcon(
-                                    FontAwesomeIcons.bolt,
-                                    color: Colors.yellow,
-                                  ),
-                                ),
-                              ],
+                                );
+                              }).toList(),
                             ),
                           ),
                         )
@@ -113,7 +93,12 @@ class _WorkState extends State<Work> {
                   flex: 4,
                   child: Container(
                     height: size.height * 1.2,
-                    child: WorkBox(),
+                    child: ListView.builder(
+                      itemCount: experiences.length,
+                      itemBuilder: (context, index) {
+                        return Workbox(experience: experiences[index]);
+                      },
+                    ),
                   ))
             ],
           )

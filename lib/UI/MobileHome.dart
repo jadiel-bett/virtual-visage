@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '/Model/Method.dart';
 import '/Widget/CustomDrawer.dart';
 import '/Widget/CustomText.dart';
 import '/Widget/MobileProject.dart';
 import '/Widget/MobileWork.dart';
+import '/providers/projects_provider.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
-class MobileHome extends StatefulWidget {
+class MobileHome extends ConsumerStatefulWidget {
+  const MobileHome({super.key});
+
   @override
-  _MobileHomeState createState() => _MobileHomeState();
+  MobileHomeState createState() => MobileHomeState();
 }
 
-class _MobileHomeState extends State<MobileHome> {
+class MobileHomeState extends ConsumerState<MobileHome> {
   late AutoScrollController _autoScrollController;
   final scrollDirection = Axis.vertical;
 
@@ -66,6 +70,12 @@ class _MobileHomeState extends State<MobileHome> {
   Widget build(BuildContext context) {
     Method method = Method();
     final Size size = MediaQuery.of(context).size;
+    final projects = ref.watch(projectsProvider);
+    
+    // Sort projects by priority
+    final sortedProjects = projects.toList()
+      ..sort((a, b) => a.priority.compareTo(b.priority));
+    
     return Scaffold(
       backgroundColor: Color(0xff0A192F),
       endDrawer: CustomDrawer(
@@ -413,17 +423,25 @@ class _MobileHomeState extends State<MobileHome> {
                     SizedBox(
                       height: size.height * 0.07,
                     ),
-                    MobileProject(
-                      ontab: () {},
-                      image: "images/count.png",
-                    ),
-                    SizedBox(
-                      height: size.height * 0.07,
-                    ),
-                    MobileProject(
-                      ontab: () {},
-                      image: "images/pic2.jpg",
-                    ),
+                    ...sortedProjects.take(2).map((project) {
+                      return Column(
+                        children: [
+                          MobileProject(
+                            project: project,
+                            onTap: () {
+                              if (project.githubUrl != null) {
+                                method.launchURL(project.githubUrl!);
+                              } else if (project.liveUrl != null) {
+                                method.launchURL(project.liveUrl!);
+                              }
+                            },
+                          ),
+                          SizedBox(
+                            height: size.height * 0.07,
+                          ),
+                        ],
+                      );
+                    }).toList(),
                   ],
                 ),
               ),

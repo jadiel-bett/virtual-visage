@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '/Model/Method.dart';
 import '/UI/About.dart';
@@ -7,14 +8,18 @@ import '/UI/Work.dart';
 import '/Widget/AppBarTitle.dart';
 import '/Widget/CustomText.dart';
 import '/Widget/MainTiitle.dart';
+import '/providers/projects_provider.dart';
+import '/models/project_model.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends ConsumerStatefulWidget {
+  const HomePage({super.key});
+
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class HomePageState extends ConsumerState<HomePage> {
   Method method = Method();
   late AutoScrollController _autoScrollController;
   final scrollDirection = Axis.vertical;
@@ -69,6 +74,14 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
+    final projects = ref.watch(projectsProvider);
+    
+    // Sort projects by priority and filter featured projects
+    final featuredProjects = projects
+        .where((p) => p.category == ProjectCategory.featured)
+        .toList()
+      ..sort((a, b) => a.priority.compareTo(b.priority));
+    
     return Scaffold(
       backgroundColor: Color(0xff0A192F),
       body: SingleChildScrollView(
@@ -365,37 +378,18 @@ class _HomePageState extends State<HomePage> {
                                     SizedBox(
                                       height: size.height * 0.04,
                                     ),
-                                    FeatureProject(
-                                      imagePath: "images/count.png",
-                                      ontab: () {
-                                        print('Opening play store');
-                                        method.launchURL(
-                                          "https://play.google.com/store/apps/details?id=com.jadielbett.count_game",
-                                        );
-                                      },
-                                      projectDesc:
-                                          "Fun and challenging counting game that will put your brain to the test!",
-                                      projectTitle: "Count Game",
-                                      tech1: "Flutter",
-                                      tech2: "Dart",
-                                      tech3: "Flutter UI",
-                                      icon: FontAwesomeIcons.play,
-                                    ),
-                                    FeatureProject(
-                                      imagePath: "images/pic2.jpg",
-                                      ontab: () async {
-                                        await method.launchURL(
-                                          "https://github.com/champ96k/Flutter-Blog-App-using-Firebase",
-                                        );
-                                      },
-                                      projectDesc:
-                                          "A blog application using Flutter and firebase, In this project implement Firebase CURD operation, User can add post as well see all the post.",
-                                      projectTitle: "Blog Application",
-                                      tech1: "Dart",
-                                      tech2: "Flutter",
-                                      tech3: "Firebase",
-                                      icon: FontAwesomeIcons.github,
-                                    ),
+                                    ...featuredProjects.map((project) {
+                                      return FeatureProject(
+                                        project: project,
+                                        onTap: () {
+                                          if (project.githubUrl != null) {
+                                            method.launchURL(project.githubUrl!);
+                                          } else if (project.liveUrl != null) {
+                                            method.launchURL(project.liveUrl!);
+                                          }
+                                        },
+                                      );
+                                    }).toList(),
                                   ],
                                 ),
                               ),
