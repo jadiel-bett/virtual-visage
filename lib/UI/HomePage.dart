@@ -334,7 +334,7 @@ class HomePageState extends ConsumerState<HomePage> {
                                   Wrap(
                                     children: [
                                       Text(
-                                        "I'm a freelancer based in Nairobi, KE specializing in \nbuilding (and occasionally designing) exceptional websites, \napplications, and everything in between.",
+                                        "I'm a Flutter developer based in Nairobi, KE specializing in \nbuilding mobile applications with clean architecture and modern \nstate management. I've deployed multiple apps to production including \nreal-time tracking systems, AI-powered solutions, and e-commerce platforms.",
                                         style: TextStyle(
                                           color: Colors.grey,
                                           fontSize: 16.0,

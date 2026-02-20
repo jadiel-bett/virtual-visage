@@ -81,14 +81,7 @@ class About extends StatelessWidget {
                   children: [
                     CustomText(
                       text:
-                          "Hello! I'm Jadiel Bett, a Software developer/Mechatronic Engineer based in Nairobi, KE,\n\nI enjoy creating things that live on the internet, whether that be websites and applications, as well as real-life robots and anything in between. My goal is to always build products that provide pixel-perfect, performant experiences.\n",
-                      textsize: 16.0,
-                      color: Color(0xff828DAA),
-                      letterSpacing: 0.75,
-                      fontWeight: FontWeight.normal,
-                    ),
-                    CustomText(
-                      text: about,
+                          "Hello! I'm Jadiel Bett, a Software Developer/Mechatronic Engineer based in Nairobi, KE.\n\nI specialize in Flutter development with multiple production apps deployed to the Play Store and web. My experience spans mobile app architecture, state management (Provider, Bloc, Riverpod), Firebase integration, and backend development with Python/FastAPI.\n\nI've built real-time systems like Stima Tracker (KPLC outage monitoring), AI-powered apps like MaskGuard (TensorFlow Lite), and multi-user platforms like E-Movers. I'm confident in app architecture, authentication, CRUD operations, and creating reusable components.\n\nMy mechatronics background from JKUAT gives me a unique perspective on IoT and embedded systems, combining hardware and software expertise.\n",
                       textsize: 16.0,
                       color: Color(0xff828DAA),
                       letterSpacing: 0.75,
@@ -96,7 +89,7 @@ class About extends StatelessWidget {
                     ),
                     CustomText(
                       text:
-                          "Here are a few technologies I've been working with recently:\n",
+                          "Here are the technologies I work with:\n",
                       textsize: 16.0,
                       color: Color(0xff828DAA),
                       letterSpacing: 0.75,
@@ -109,24 +102,26 @@ class About extends StatelessWidget {
                   children: [
                     Container(
                       width: size.width * 0.20,
-                      height: size.height * 0.15,
+                      height: size.height * 0.20,
                       child: Column(
                         children: [
-                          technology(context, "Dart"),
-                          technology(context, "Flutter"),
+                          technology(context, "Dart (Flutter)"),
+                          technology(context, "Python"),
+                          technology(context, "JavaScript"),
                           technology(context, "Firebase"),
-                          technology(context, "React"),
+                          technology(context, "FastAPI"),
                         ],
                       ),
                     ),
                     Container(
                       width: size.width * 0.15,
-                      height: size.height * 0.15,
+                      height: size.height * 0.20,
                       child: Column(
                         children: [
-                          technology(context, "C/C++."),
-                          technology(context, "HTML, CSS & JS"),
-                          technology(context, "MYSQL"),
+                          technology(context, "React + TypeScript"),
+                          technology(context, "SQL & NoSQL"),
+                          technology(context, "REST APIs"),
+                          technology(context, "C/C++ (Arduino)"),
                           technology(context, "Git - Github"),
                         ],
                       ),
