@@ -27,8 +27,6 @@ class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    String about =
-        """I’m a software developer with over 4 years of experience, I am passionate about using my technical expertise to develop software solutions that make a meaningful impact on businesses and end-users alike.\n""";
     return Container(
       height: size.height,
       width: size.width - 100,
@@ -88,8 +86,7 @@ class About extends StatelessWidget {
                       fontWeight: FontWeight.normal,
                     ),
                     CustomText(
-                      text:
-                          "Here are the technologies I work with:\n",
+                      text: "Here are the technologies I work with:\n",
                       textsize: 16.0,
                       color: Color(0xff828DAA),
                       letterSpacing: 0.75,

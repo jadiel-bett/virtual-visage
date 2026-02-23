@@ -77,13 +77,13 @@ class HomePageState extends ConsumerState<HomePage> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     final projects = ref.watch(projectsProvider);
-    
+
     // Sort projects by priority and filter featured projects
     final featuredProjects = projects
         .where((p) => p.category == ProjectCategory.featured)
         .toList()
       ..sort((a, b) => a.priority.compareTo(b.priority));
-    
+
     return Scaffold(
       backgroundColor: Color(0xff0A192F),
       body: SingleChildScrollView(
@@ -226,7 +226,7 @@ class HomePageState extends ConsumerState<HomePage> {
                           iconSize: 16.0,
                           onPressed: () {
                             method.launchURL(
-                              "https://twitter.com/jadiel_bett",
+                              "https://twitter.com/its_masta_shifu",
                             );
                           }),
                       IconButton(
@@ -293,235 +293,241 @@ class HomePageState extends ConsumerState<HomePage> {
                           child: CustomScrollView(
                             controller: _autoScrollController,
                             slivers: <Widget>[
-                            SliverList(
-                                delegate: SliverChildListDelegate([
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(
-                                    height: size.height * .06,
-                                  ),
-                                  CustomText(
-                                    text: "Hi, my name is",
-                                    textsize: 16.0,
-                                    color: Color(0xff41FBDA),
-                                    letterSpacing: 3.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                  SizedBox(
-                                    height: 6.0,
-                                  ),
-                                  CustomText(
-                                    text: "Jadiel Bett.",
-                                    textsize: 68.0,
-                                    color: Color(0xffCCD6F6),
-                                    fontWeight: FontWeight.w900,
-                                    letterSpacing: 1.0,
-                                  ),
-                                  SizedBox(
-                                    height: 4.0,
-                                  ),
-                                  CustomText(
-                                    text: "I build things for Android and web.",
-                                    textsize: 56.0,
-                                    color: Color(0xffCCD6F6).withAlpha(153),
-                                    fontWeight: FontWeight.w700,
-                                    letterSpacing: 1.0,
-                                  ),
-                                  SizedBox(
-                                    height: size.height * .04,
-                                  ),
-                                  Wrap(
-                                    children: [
-                                      Text(
-                                        "I'm a Flutter developer based in Nairobi, KE specializing in \nbuilding mobile applications with clean architecture and modern \nstate management. I've deployed multiple apps to production including \nreal-time tracking systems, AI-powered solutions, and e-commerce platforms.",
-                                        style: TextStyle(
-                                          color: Colors.grey,
-                                          fontSize: 16.0,
-                                          letterSpacing: 2.75,
-                                          wordSpacing: 0.75,
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: size.height * .12,
-                                  ),
-
-                                  //get in touch text
-                                  InkWell(
-                                    onTap: () {
-                                      method.launchEmail();
-                                    },
-                                    hoverColor: Color(0xff64FFDA).withAlpha(51),
-                                    borderRadius: BorderRadius.circular(4.0),
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      height: size.height * 0.09,
-                                      width: size.width * 0.14,
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                          color: Color(0xff64FFDA),
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(4.0),
-                                      ),
-                                      child: Text(
-                                        "Get In Touch",
-                                        style: TextStyle(
-                                          color: Color(0xff64FFDA),
-                                          letterSpacing: 2.75,
-                                          wordSpacing: 1.0,
-                                          fontSize: 15.0,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-
-                                  SizedBox(
-                                    height: size.height * 0.20,
-                                  ),
-                                ],
-                              ),
-
-                              //About Me
-                              _wrapScrollTag(
-                                index: 0,
-                                child: About(),
-                              ),
-                              SizedBox(height: size.height * 0.02),
-
-                              //Where I've Worked
-                              _wrapScrollTag(index: 1, child: Work()),
-                              SizedBox(
-                                height: size.height * 0.10,
-                              ),
-
-                              //Some Things I've Built Main Project
-                              _wrapScrollTag(
-                                index: 2,
-                                child: Column(
+                              SliverList(
+                                  delegate: SliverChildListDelegate([
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    MainTiitle(
-                                      number: "03.",
-                                      text: "Some Things I've Built",
+                                    SizedBox(
+                                      height: size.height * .06,
+                                    ),
+                                    CustomText(
+                                      text: "Hi, my name is",
+                                      textsize: 16.0,
+                                      color: Color(0xff41FBDA),
+                                      letterSpacing: 3.0,
+                                      fontWeight: FontWeight.normal,
                                     ),
                                     SizedBox(
-                                      height: size.height * 0.04,
+                                      height: 6.0,
                                     ),
-                                    ...featuredProjects.map((project) {
-                                      return FeatureProject(
-                                        project: project,
-                                        onTap: () {
-                                          if (project.githubUrl != null) {
-                                            method.launchURL(project.githubUrl!);
-                                          } else if (project.liveUrl != null) {
-                                            method.launchURL(project.liveUrl!);
-                                          }
-                                        },
-                                      );
-                                    }).toList(),
+                                    CustomText(
+                                      text: "Jadiel Bett.",
+                                      textsize: 68.0,
+                                      color: Color(0xffCCD6F6),
+                                      fontWeight: FontWeight.w900,
+                                      letterSpacing: 1.0,
+                                    ),
+                                    SizedBox(
+                                      height: 4.0,
+                                    ),
+                                    CustomText(
+                                      text:
+                                          "I build things for Mobile, Web, and IoT",
+                                      textsize: 56.0,
+                                      color: Color(0xffCCD6F6).withAlpha(153),
+                                      fontWeight: FontWeight.w700,
+                                      letterSpacing: 1.0,
+                                    ),
+                                    SizedBox(
+                                      height: size.height * .04,
+                                    ),
+                                    Wrap(
+                                      children: [
+                                        Text(
+                                          "I'm a Flutter developer based in Nairobi, KE specializing in \nbuilding mobile applications with clean architecture and modern \nstate management. I've deployed multiple apps to production including \nreal-time tracking systems, AI-powered solutions, and e-commerce platforms.",
+                                          style: TextStyle(
+                                            color: Colors.grey,
+                                            fontSize: 16.0,
+                                            letterSpacing: 2.75,
+                                            wordSpacing: 0.75,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: size.height * .12,
+                                    ),
+
+                                    //get in touch text
+                                    InkWell(
+                                      onTap: () {
+                                        method.launchEmail();
+                                      },
+                                      hoverColor:
+                                          Color(0xff64FFDA).withAlpha(51),
+                                      borderRadius: BorderRadius.circular(4.0),
+                                      child: Container(
+                                        alignment: Alignment.center,
+                                        height: size.height * 0.09,
+                                        width: size.width * 0.14,
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                            color: Color(0xff64FFDA),
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(4.0),
+                                        ),
+                                        child: Text(
+                                          "Get In Touch",
+                                          style: TextStyle(
+                                            color: Color(0xff64FFDA),
+                                            letterSpacing: 2.75,
+                                            wordSpacing: 1.0,
+                                            fontSize: 15.0,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+
+                                    SizedBox(
+                                      height: size.height * 0.20,
+                                    ),
                                   ],
                                 ),
-                              ),
 
-                              SizedBox(height: 6.0),
+                                //About Me
+                                _wrapScrollTag(
+                                  index: 0,
+                                  child: About(),
+                                ),
+                                SizedBox(height: size.height * 0.02),
 
-                              //Get In Touch
-                              _wrapScrollTag(
-                                index: 3,
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      height: size.height * 0.68,
-                                      width: size.width - 100,
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          MainTiitle(
-                                            number: "04.",
-                                            text: "What Next",
-                                          ),
-                                          SizedBox(height: 20),
-                                          Wrap(
-                                            children: [
-                                              Text(
-                                                "My inbox is always open. Whether you have a question or just want to say hi, I'll try my \nbest to get back to you!",
-                                                textAlign: TextAlign.start,
-                                                style: TextStyle(
-                                                  color: Colors.white
-                                                      .withAlpha(102),
-                                                  letterSpacing: 0.75,
-                                                  fontSize: 17.0,
+                                //Where I've Worked
+                                _wrapScrollTag(index: 1, child: Work()),
+                                SizedBox(
+                                  height: size.height * 0.10,
+                                ),
+
+                                //Some Things I've Built Main Project
+                                _wrapScrollTag(
+                                  index: 2,
+                                  child: Column(
+                                    children: [
+                                      MainTiitle(
+                                        number: "03.",
+                                        text: "Some Things I've Built",
+                                      ),
+                                      SizedBox(
+                                        height: size.height * 0.04,
+                                      ),
+                                      ...featuredProjects.map((project) {
+                                        return FeatureProject(
+                                          project: project,
+                                          onTap: () {
+                                            if (project.githubUrl != null) {
+                                              method.launchURL(
+                                                  project.githubUrl!);
+                                            } else if (project.liveUrl !=
+                                                null) {
+                                              method
+                                                  .launchURL(project.liveUrl!);
+                                            }
+                                          },
+                                        );
+                                      }).toList(),
+                                    ],
+                                  ),
+                                ),
+
+                                SizedBox(height: 6.0),
+
+                                //Get In Touch
+                                _wrapScrollTag(
+                                  index: 3,
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: size.height * 0.68,
+                                        width: size.width - 100,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            MainTiitle(
+                                              number: "04.",
+                                              text: "What Next",
+                                            ),
+                                            SizedBox(height: 20),
+                                            Wrap(
+                                              children: [
+                                                Text(
+                                                  "My inbox is always open. Whether you have a question or just want to say hi, I'll try my \nbest to get back to you!",
+                                                  textAlign: TextAlign.start,
+                                                  style: TextStyle(
+                                                    color: Colors.white
+                                                        .withAlpha(102),
+                                                    letterSpacing: 0.75,
+                                                    fontSize: 17.0,
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 32.0,
-                                          ),
-                                          InkWell(
-                                            onTap: () {
-                                              method.launchEmail();
-                                            },
-                                            hoverColor:
-                                                Color(0xff64FFDA).withAlpha(51),
-                                            borderRadius:
-                                                BorderRadius.circular(4.0),
-                                            child: Container(
-                                              alignment: Alignment.center,
-                                              height: size.height * 0.09,
-                                              width: size.width * 0.14,
-                                              decoration: BoxDecoration(
-                                                border: Border.all(
-                                                  color: Color(0xff64FFDA),
+                                              ],
+                                            ),
+                                            SizedBox(
+                                              height: 32.0,
+                                            ),
+                                            InkWell(
+                                              onTap: () {
+                                                method.launchEmail();
+                                              },
+                                              hoverColor: Color(0xff64FFDA)
+                                                  .withAlpha(51),
+                                              borderRadius:
+                                                  BorderRadius.circular(4.0),
+                                              child: Container(
+                                                alignment: Alignment.center,
+                                                height: size.height * 0.09,
+                                                width: size.width * 0.14,
+                                                decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                    color: Color(0xff64FFDA),
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          4.0),
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(4.0),
-                                              ),
-                                              child: Text(
-                                                "Say Hello",
-                                                style: TextStyle(
-                                                  color: Color(0xff64FFDA),
-                                                  letterSpacing: 2.75,
-                                                  wordSpacing: 1.0,
-                                                  fontSize: 15.0,
+                                                child: Text(
+                                                  "Say Hello",
+                                                  style: TextStyle(
+                                                    color: Color(0xff64FFDA),
+                                                    letterSpacing: 2.75,
+                                                    wordSpacing: 1.0,
+                                                    fontSize: 15.0,
+                                                  ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-
-                                    //Footer
-                                    Container(
-                                      alignment: Alignment.center,
-                                      height: size.height / 6,
-                                      width: size.width - 100,
-                                      //color: Colors.white,
-                                      child: Text(
-                                        "© 2024 Jadiel Bett",
-                                        style: TextStyle(
-                                          color: Colors.white.withAlpha(102),
-                                          letterSpacing: 1.75,
-                                          fontSize: 14.0,
+                                          ],
                                         ),
                                       ),
-                                    ),
-                                  ],
+
+                                      //Footer
+                                      Container(
+                                        alignment: Alignment.center,
+                                        height: size.height / 6,
+                                        width: size.width - 100,
+                                        //color: Colors.white,
+                                        child: Text(
+                                          "© 2024 Jadiel Bett",
+                                          style: TextStyle(
+                                            color: Colors.white.withAlpha(102),
+                                            letterSpacing: 1.75,
+                                            fontSize: 14.0,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ])),
-                          ],
+                              ])),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
                 ),
 
                 // Socials (right)
