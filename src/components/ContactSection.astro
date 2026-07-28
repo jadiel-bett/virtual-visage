@@ -1,0 +1,103 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  profile: CollectionEntry<"profile">;
+}
+
+const { profile } = Astro.props;
+---
+
+<section class="section contact-section" id="contact" aria-labelledby="contact-heading">
+  <div class="container contact-grid">
+    <div class="contact-copy">
+      <p class="eyebrow">Start a conversation</p>
+      <h2 id="contact-heading">Building a product or hiring an engineer?</h2>
+      <p>
+        I’m open to product engineering roles and selected contract work across
+        mobile, web, and connected systems.
+      </p>
+      <div class="contact-direct">
+        <a class="text-link text-link-large" href={`mailto:${profile.data.email}`}>
+          {profile.data.email}
+        </a>
+        <button
+          class="copy-button"
+          type="button"
+          data-copy-email
+          data-email={profile.data.email}
+        >
+          Copy email
+        </button>
+        <span class="copy-status" role="status" aria-live="polite" data-copy-status></span>
+      </div>
+      <div class="contact-socials" aria-label="Professional profiles">
+        <a href={profile.data.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href={profile.data.github} target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </div>
+
+    <form
+      class="contact-form"
+      name="portfolio-inquiry"
+      method="POST"
+      action="/contact-success"
+      data-netlify="true"
+      netlify-honeypot="company-website"
+    >
+      <input type="hidden" name="form-name" value="portfolio-inquiry" />
+      <p class="honeypot">
+        <label>
+          Do not fill this out if you are human:
+          <input name="company-website" tabindex="-1" autocomplete="off" />
+        </label>
+      </p>
+      <div class="form-row">
+        <label>
+          Name
+          <input name="name" type="text" autocomplete="name" required />
+        </label>
+        <label>
+          Email
+          <input name="email" type="email" autocomplete="email" required />
+        </label>
+      </div>
+      <label>
+        Organization <span class="optional">(optional)</span>
+        <input name="organization" type="text" autocomplete="organization" />
+      </label>
+      <label>
+        What would you like to discuss?
+        <select name="inquiry-type" required>
+          <option value="">Choose one</option>
+          <option value="role">A product engineering role</option>
+          <option value="contract">A contract project</option>
+          <option value="collaboration">A collaboration</option>
+        </select>
+      </label>
+      <label>
+        Message
+        <textarea name="message" rows="5" minlength="20" required></textarea>
+      </label>
+      <button class="button" type="submit">Send inquiry</button>
+      <p class="form-note">Your message is sent securely through Netlify Forms.</p>
+    </form>
+  </div>
+</section>
+
+<script>
+  const copyButton = document.querySelector<HTMLButtonElement>("[data-copy-email]");
+  const copyStatus = document.querySelector<HTMLElement>("[data-copy-status]");
+
+  copyButton?.addEventListener("click", async () => {
+    const email = copyButton.dataset.email;
+    if (!email) return;
+
+    try {
+      await navigator.clipboard.writeText(email);
+      if (copyStatus) copyStatus.textContent = "Email copied.";
+    } catch {
+      if (copyStatus) copyStatus.textContent = `Copy ${email}`;
+    }
+  });
+</script>

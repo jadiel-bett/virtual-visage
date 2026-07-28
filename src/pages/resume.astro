@@ -1,0 +1,111 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const profile = await getEntry("profile", "main");
+if (!profile) throw new Error("Missing profile content.");
+const experiences = (await getCollection("experience")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const achievements = (await getCollection("achievements")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const technologies = [
+  "Flutter",
+  "Dart",
+  "Riverpod",
+  "BLoC",
+  "React",
+  "TypeScript",
+  "Python",
+  "FastAPI",
+  "Firebase",
+  "Supabase",
+  "REST APIs",
+  "TensorFlow Lite",
+  "SQL and NoSQL",
+  "Arduino",
+  "C/C++",
+  "Git",
+];
+---
+
+<BaseLayout
+  title="Résumé"
+  description="Résumé for Jadiel Bett, product engineer with experience across Flutter, mobile products, web platforms, AI, IoT, robotics, and mechatronics."
+>
+  <header class="page-hero">
+    <div class="container page-hero-grid">
+      <div>
+        <p class="eyebrow">Résumé</p>
+        <h1>Product engineer with multidisciplinary range.</h1>
+        <p class="page-hero-lead">{profile.data.shortBio}</p>
+      </div>
+      <aside class="page-hero-aside">
+        <a class="button" href="/jadiel-bett-resume.pdf" download>Download PDF résumé</a>
+      </aside>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container resume-grid">
+      <aside class="resume-sidebar">
+        <p class="eyebrow">Contact</p>
+        <p>
+          {profile.data.location}<br />
+          <a href={`mailto:${profile.data.email}`}>{profile.data.email}</a>
+        </p>
+        <p>
+          <a href={profile.data.linkedin} target="_blank" rel="noreferrer">LinkedIn</a><br />
+          <a href={profile.data.github} target="_blank" rel="noreferrer">GitHub</a>
+        </p>
+        <p class="availability">{profile.data.availability}</p>
+      </aside>
+
+      <div>
+        <section class="resume-section">
+          <p class="eyebrow">Experience</p>
+          {
+            experiences.map((experience) => (
+              <article class="resume-entry">
+                <p class="resume-entry-period">
+                  {experience.data.startDate}<br />— {experience.data.endDate}
+                </p>
+                <div>
+                  <h3>{experience.data.position}</h3>
+                  <p><strong>{experience.data.organization}</strong> · {experience.data.location}</p>
+                  <ul>
+                    {experience.data.highlights.map((highlight) => <li>{highlight}</li>)}
+                  </ul>
+                </div>
+              </article>
+            ))
+          }
+        </section>
+
+        <section class="resume-section">
+          <p class="eyebrow">Selected milestones</p>
+          {
+            achievements.map((achievement) => (
+              <article class="resume-entry">
+                <p class="resume-entry-period">{achievement.data.date}</p>
+                <div>
+                  <h3>{achievement.data.title}</h3>
+                  <p><strong>{achievement.data.issuer}</strong></p>
+                  <p>{achievement.data.description}</p>
+                </div>
+              </article>
+            ))
+          }
+        </section>
+
+        <section class="resume-section">
+          <p class="eyebrow">Technical practice</p>
+          <ul class="tag-list" aria-label="Technical capabilities">
+            {technologies.map((technology) => <li>{technology}</li>)}
+          </ul>
+        </section>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

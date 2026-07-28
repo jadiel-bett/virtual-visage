@@ -1,0 +1,128 @@
+---
+import { Picture } from "astro:assets";
+import { getCollection, getEntry } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import ContactSection from "@/components/ContactSection.astro";
+
+const profile = await getEntry("profile", "main");
+if (!profile) throw new Error("Missing profile content.");
+const experiences = (await getCollection("experience")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const achievements = (await getCollection("achievements")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<BaseLayout
+  title="About"
+  description="About Jadiel Bett, a Nairobi-based product and mechatronics engineer working across mobile software, web platforms, AI, IoT, and robotics."
+>
+  <header class="page-hero">
+    <div class="container about-hero">
+      <div>
+        <p class="eyebrow">About Jadiel</p>
+        <h1>Engineering the whole system, not just the screen.</h1>
+        <p class="page-hero-lead">
+          {profile.data.shortBio}
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="/work">Explore my work</a>
+          <a class="button button-secondary" href="/jadiel-bett-resume.pdf" download>
+            Download résumé
+          </a>
+        </div>
+      </div>
+      <figure class="portrait-frame">
+        <Picture
+          src={profile.data.portrait}
+          alt={profile.data.portraitAlt}
+          widths={[480, 720]}
+          sizes="(max-width: 767px) 90vw, 35vw"
+          formats={["avif", "webp"]}
+          loading="eager"
+          fetchpriority="high"
+        />
+      </figure>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container experience-grid">
+      <div class="experience-intro">
+        <SectionHeading
+          eyebrow="Working perspective"
+          title="Software informed by physical engineering"
+          intro="Mechatronics taught me to think in interfaces, constraints, failure modes, and feedback loops. Those habits carry directly into how I design software products."
+        />
+        <p>
+          I’m most useful where an idea needs to become a coherent, maintainable
+          product—not just a collection of screens.
+        </p>
+      </div>
+      <div class="timeline">
+        {
+          experiences.map((experience) => (
+            <article class="timeline-item">
+              <p class="timeline-period">{experience.data.startDate} — {experience.data.endDate}</p>
+              <h3>{experience.data.position} <span>at {experience.data.organization}</span></h3>
+              <p>{experience.data.summary}</p>
+              <ul>
+                {experience.data.highlights.map((highlight) => <li>{highlight}</li>)}
+              </ul>
+              <ul class="tag-list" aria-label="Technologies and disciplines">
+                {experience.data.technologies.map((technology) => <li>{technology}</li>)}
+              </ul>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container">
+      <SectionHeading
+        eyebrow="How I can contribute"
+        title="Four connected areas of practice"
+        intro="The strongest products often require judgment across more than one technical layer."
+      />
+      <div class="capability-grid">
+        {
+          profile.data.services.map((service, index) => (
+            <article class="capability-card">
+              <span>0{index + 1}</span>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeading eyebrow="Milestones" title="Education, programs, and launches" />
+      <div class="achievement-grid">
+        {
+          achievements.map((achievement) => (
+            <article class="achievement-card">
+              <p class="eyebrow">{achievement.data.date} · {achievement.data.issuer}</p>
+              <h3>{achievement.data.title}</h3>
+              <p>{achievement.data.description}</p>
+              {achievement.data.proofUrl && (
+                <a class="text-link" href={achievement.data.proofUrl} target="_blank" rel="noreferrer">
+                  View evidence <span aria-hidden="true">↗</span>
+                </a>
+              )}
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <ContactSection profile={profile} />
+</BaseLayout>

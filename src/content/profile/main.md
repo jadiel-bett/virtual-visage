@@ -1,0 +1,21 @@
+---
+name: "Jadiel Bett"
+headline: "Product engineer building reliable mobile, web, and connected systems."
+shortBio: "I turn practical problems into dependable software products—combining mobile engineering, backend systems, and web delivery with a mechatronics perspective shaped by robotics, electronics, and automation."
+location: "Nairobi, Kenya"
+availability: "Open to product engineering roles and selected contract work"
+email: "jadielbett@gmail.com"
+github: "https://github.com/jadiel-bett"
+linkedin: "https://www.linkedin.com/in/jadiel-bett-5a6101169/"
+portrait: "../../assets/profile/profile-photo.jpeg"
+portraitAlt: "Portrait of Jadiel Bett, product and mechatronics engineer"
+services:
+  - title: "Mobile product engineering"
+    description: "Cross-platform Flutter applications with maintainable architecture, thoughtful state management, and production integrations."
+  - title: "Web and platform delivery"
+    description: "Responsive web products, commerce integrations, APIs, and operational tools built around real user workflows."
+  - title: "AI and data systems"
+    description: "Practical machine-learning and data pipelines, including on-device inference and real-time information processing."
+  - title: "Connected engineering"
+    description: "Embedded systems, IoT, automation, and robotics informed by a formal mechatronics engineering background."
+---

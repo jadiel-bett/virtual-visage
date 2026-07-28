@@ -1,0 +1,41 @@
+---
+import { Picture } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+  priority?: boolean;
+}
+
+const { project, priority = false } = Astro.props;
+const { cover, coverAlt, title, category } = project.data;
+---
+
+<div class:list={["project-visual", !cover && "project-visual-generated"]}>
+  {
+    cover ? (
+      <Picture
+        src={cover}
+        alt={coverAlt ?? ""}
+        widths={[480, 720, 960]}
+        sizes="(max-width: 767px) 100vw, 50vw"
+        formats={["avif"]}
+        fallbackFormat="webp"
+        loading={priority ? "eager" : "lazy"}
+        fetchpriority={priority ? "high" : "auto"}
+      />
+    ) : (
+      <div class="generated-cover" aria-label={`${title} project cover`}>
+        <span class="generated-grid" aria-hidden="true" />
+        <span class="generated-category">{category.replace("-", " + ")}</span>
+        <strong>{title}</strong>
+        <span class="generated-signal" aria-hidden="true">
+          <i />
+          <i />
+          <i />
+          <i />
+        </span>
+      </div>
+    )
+  }
+</div>

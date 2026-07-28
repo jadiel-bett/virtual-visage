@@ -1,46 +1,26 @@
-# Miscellaneous
-*.class
-*.log
-*.pyc
-*.swp
+# Operating system and editor files
 .DS_Store
-.atom/
-.buildlog/
-.history
-.svn/
-
-# IntelliJ related
-*.iml
-*.ipr
-*.iws
+*.log
+*.swp
 .idea/
+.vscode/
 
-# The .vscode folder contains launchUrl configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
+# Astro / Node
+node_modules/
+dist/
+.astro/
+.netlify/
+playwright-report/
+test-results/
+tmp/
+output/
 
-# Flutter/Dart/Pub related
-**/doc/api/
-**/ios/Flutter/.last_build_id
+# Retired Flutter build artefacts kept out of future commits
 .dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
 .packages
 .pub-cache/
 .pub/
-app.*.symbols
-
-# Ignore everything in the build directory
-/build/*
-
-# Un-ignore the web directory and its contents
-!build/web/
-!build/web/**
-
-
-# Obfuscation related
-app.*.map.json
-
-# Exceptions to above rules.
-!/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
+build/
+*.iml

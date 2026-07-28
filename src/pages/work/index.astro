@@ -1,0 +1,83 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+
+const projects = (await getCollection("projects")).sort(
+  (a, b) => (a.data.featuredRank ?? 99) - (b.data.featuredRank ?? 99),
+);
+---
+
+<BaseLayout
+  title="Work"
+  description="Case studies across Flutter, mobile products, web platforms, AI, data systems, IoT, robotics, and mechatronics engineering."
+>
+  <header class="page-hero">
+    <div class="container page-hero-grid">
+      <div>
+        <p class="eyebrow">Project archive</p>
+        <h1>Work across software and physical systems.</h1>
+        <p class="page-hero-lead">
+          Selected products and engineering projects, presented with the
+          problem, my role, technical approach, and available evidence.
+        </p>
+      </div>
+      <aside class="page-hero-aside">
+        <p class="eyebrow">Editorial standard</p>
+        <p>
+          Flagship work includes a concrete problem, implementation detail,
+          outcome, and either a public link or a clear privacy note.
+        </p>
+      </aside>
+    </div>
+  </header>
+
+  <section class="section" aria-labelledby="work-heading">
+    <div class="container">
+      <h2 class="sr-only" id="work-heading">All projects</h2>
+      <div class="filter-bar" role="group" aria-label="Filter projects">
+        <button class="filter-button" type="button" data-filter="all" aria-pressed="true">All work</button>
+        <button class="filter-button" type="button" data-filter="mobile" aria-pressed="false">Mobile products</button>
+        <button class="filter-button" type="button" data-filter="web" aria-pressed="false">Web + platforms</button>
+        <button class="filter-button" type="button" data-filter="ai-data" aria-pressed="false">AI + data</button>
+        <button class="filter-button" type="button" data-filter="embedded" aria-pressed="false">Embedded + robotics</button>
+      </div>
+      <p class="filter-status" role="status" aria-live="polite" data-filter-status>
+        Showing all {projects.length} projects.
+      </p>
+      <div class="project-grid" data-project-grid>
+        {projects.map((project, index) => <ProjectCard project={project} priority={index === 0} />)}
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-filter]"));
+    const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-project-card]"));
+    const status = document.querySelector<HTMLElement>("[data-filter-status]");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter ?? "all";
+        let count = 0;
+
+        buttons.forEach((item) => {
+          item.setAttribute("aria-pressed", String(item === button));
+        });
+
+        cards.forEach((card) => {
+          const visible = filter === "all" || card.dataset.category === filter;
+          card.hidden = !visible;
+          if (visible) count += 1;
+        });
+
+        if (status) {
+          status.textContent =
+            filter === "all"
+              ? `Showing all ${count} projects.`
+              : `Showing ${count} ${button.textContent?.trim().toLowerCase()} project${count === 1 ? "" : "s"}.`;
+        }
+      });
+    });
+  </script>
+</BaseLayout>

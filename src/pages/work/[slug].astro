@@ -1,0 +1,170 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ProjectVisual from "@/components/ProjectVisual.astro";
+import ContactSection from "@/components/ContactSection.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import { getEntry } from "astro:content";
+import { contentSlug } from "@/utils/content";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((project) => ({
+    params: { slug: contentSlug(project.id) },
+    props: { project },
+  }));
+}
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const slug = contentSlug(project.id);
+const profile = await getEntry("profile", "main");
+if (!profile) throw new Error("Missing profile content.");
+const allProjects = await getCollection("projects");
+const related = allProjects
+  .filter((candidate) => candidate.id !== project.id)
+  .sort((a, b) => {
+    const aMatch = a.data.category === project.data.category ? 0 : 1;
+    const bMatch = b.data.category === project.data.category ? 0 : 1;
+    return aMatch - bMatch;
+  })
+  .slice(0, 2);
+
+const categoryLabels = {
+  mobile: "Mobile product",
+  web: "Web platform",
+  "ai-data": "AI + data",
+  embedded: "Embedded + robotics",
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": project.data.category === "mobile" ? "SoftwareApplication" : "CreativeWork",
+  name: project.data.title,
+  description: project.data.summary,
+  author: {
+    "@type": "Person",
+    name: "Jadiel Bett",
+    url: "https://jadielbett.com",
+  },
+  dateCreated: String(project.data.year),
+  url: new URL(`/work/${slug}`, Astro.site).toString(),
+  keywords: project.data.technologies.join(", "),
+};
+---
+
+<BaseLayout
+  title={project.data.title}
+  description={project.data.summary}
+  structuredData={structuredData}
+>
+  <header class="case-hero">
+    <div class="container case-hero-grid">
+      <div>
+        <p class="eyebrow">{categoryLabels[project.data.category]} · {project.data.status}</p>
+        <h1>{project.data.title}</h1>
+        <p class="case-hero-lead">{project.data.summary}</p>
+        <dl class="case-meta">
+          <div>
+            <dt>Role</dt>
+            <dd>{project.data.role}</dd>
+          </div>
+          <div>
+            <dt>Context</dt>
+            <dd>{project.data.team}</dd>
+          </div>
+          <div>
+            <dt>Year</dt>
+            <dd>{project.data.year}</dd>
+          </div>
+        </dl>
+        <div class="case-links">
+          {
+            project.data.links.map((link) => (
+              <a class="button" href={link.url} target="_blank" rel="noreferrer">
+                {link.label} <span aria-hidden="true">↗</span>
+              </a>
+            ))
+          }
+          <a class="button button-secondary" href="/work">Back to all work</a>
+        </div>
+      </div>
+      <ProjectVisual project={project} priority />
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container case-body-grid">
+      <aside class="case-sidebar">
+        <h2>Technology</h2>
+        <ul class="tag-list" aria-label="Project technologies">
+          {project.data.technologies.map((technology) => <li>{technology}</li>)}
+        </ul>
+        {
+          project.data.confidentiality && (
+            <p class="confidentiality">{project.data.confidentiality}</p>
+          )
+        }
+      </aside>
+      <div class="case-content">
+        <section>
+          <p class="eyebrow">The problem</p>
+          <h2>What the product needed to solve</h2>
+          <p>{project.data.problem}</p>
+        </section>
+        <section>
+          <p class="eyebrow">Constraints</p>
+          <h2>The realities shaping the work</h2>
+          <ul>
+            {project.data.constraints.map((constraint) => <li>{constraint}</li>)}
+          </ul>
+        </section>
+        <section>
+          <p class="eyebrow">Approach</p>
+          <h2>Product and technical direction</h2>
+          <p>{project.data.solution}</p>
+        </section>
+        <section>
+          <p class="eyebrow">Architecture</p>
+          <h2>Clear boundaries between responsibilities</h2>
+          <p>{project.data.architecture}</p>
+        </section>
+        <section>
+          <p class="eyebrow">Implementation highlights</p>
+          <h2>Where the engineering work mattered</h2>
+          <ul>
+            {project.data.highlights.map((highlight) => <li>{highlight}</li>)}
+          </ul>
+        </section>
+        <section>
+          <p class="eyebrow">Outcome</p>
+          <h2>What the work established</h2>
+          <ul>
+            {project.data.outcomes.map((outcome) => <li>{outcome}</li>)}
+          </ul>
+        </section>
+        <section class="prose">
+          <Content />
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-compact" aria-labelledby="related-heading">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Continue exploring</p>
+        <h2 id="related-heading">Related work</h2>
+      </div>
+      <div class="project-grid">
+        {related.map((candidate) => <ProjectCard project={candidate} />)}
+      </div>
+    </div>
+  </section>
+
+  <ContactSection profile={profile} />
+</BaseLayout>

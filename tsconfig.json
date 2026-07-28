@@ -1,0 +1,22 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [
+    ".astro/types.d.ts",
+    "src/**/*",
+    "astro.config.mjs",
+    "playwright.config.ts"
+  ],
+  "exclude": [
+    "dist",
+    "build",
+    "lib",
+    "web",
+    ".dart_tool"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}

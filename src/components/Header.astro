@@ -1,0 +1,80 @@
+---
+const path = Astro.url.pathname;
+const navItems = [
+  { href: "/work", label: "Work" },
+  { href: "/about", label: "About" },
+  { href: "/notes", label: "Notes" },
+  { href: "/resume", label: "Résumé" },
+];
+
+const isActive = (href: string) =>
+  path === href || (href !== "/" && path.startsWith(`${href}/`));
+---
+
+<header class="site-header" data-header>
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="Jadiel Bett, home">
+      <span class="brand-mark" aria-hidden="true">JB</span>
+      <span class="brand-name">Jadiel Bett</span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      data-menu-toggle
+    >
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+
+    <nav
+      class="primary-nav"
+      id="primary-navigation"
+      aria-label="Primary navigation"
+      data-navigation
+    >
+      <ul>
+        {
+          navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={isActive(item.href) ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <a class="button button-small" href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+  const navigation = document.querySelector<HTMLElement>("[data-navigation]");
+
+  const closeMenu = () => {
+    toggle?.setAttribute("aria-expanded", "false");
+    navigation?.removeAttribute("data-open");
+  };
+
+  toggle?.addEventListener("click", () => {
+    const isOpen = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!isOpen));
+    navigation?.toggleAttribute("data-open", !isOpen);
+  });
+
+  navigation?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMenu();
+  });
+</script>

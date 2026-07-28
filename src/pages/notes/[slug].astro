@@ -1,0 +1,78 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { contentSlug } from "@/utils/content";
+
+export async function getStaticPaths() {
+  const notes = await getCollection("notes");
+  return notes.map((note) => ({
+    params: { slug: contentSlug(note.id) },
+    props: { note },
+  }));
+}
+
+interface Props {
+  note: CollectionEntry<"notes">;
+}
+
+const { note } = Astro.props;
+const { Content } = await render(note);
+const slug = contentSlug(note.id);
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: note.data.title,
+  description: note.data.seoDescription,
+  datePublished: note.data.publishDate.toISOString(),
+  dateModified: (note.data.updatedDate ?? note.data.publishDate).toISOString(),
+  author: {
+    "@type": "Person",
+    name: "Jadiel Bett",
+    url: "https://jadielbett.com",
+  },
+  mainEntityOfPage: new URL(`/notes/${slug}`, Astro.site).toString(),
+};
+---
+
+<BaseLayout
+  title={note.data.title}
+  description={note.data.seoDescription}
+  type="article"
+  structuredData={structuredData}
+>
+  <header class="page-hero">
+    <div class="container page-hero-grid">
+      <div>
+        <p class="eyebrow">Engineering note</p>
+        <h1>{note.data.title}</h1>
+        <p class="page-hero-lead">{note.data.summary}</p>
+      </div>
+      <aside class="page-hero-aside">
+        <p class="eyebrow">
+          <time datetime={note.data.publishDate.toISOString()}>
+            {note.data.publishDate.toLocaleDateString("en-KE", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })}
+          </time>
+        </p>
+        <p>{note.data.readingMinutes} minute read</p>
+      </aside>
+    </div>
+  </header>
+
+  <article class="section">
+    <div class="container article-shell">
+      <aside class="article-meta">
+        <a class="text-link" href="/notes">← All notes</a>
+        <ul class="tag-list" aria-label="Article topics">
+          {note.data.tags.map((tag) => <li>{tag}</li>)}
+        </ul>
+      </aside>
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+  </article>
+</BaseLayout>
