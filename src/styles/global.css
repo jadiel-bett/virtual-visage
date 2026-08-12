@@ -325,6 +325,19 @@ p {
   background: var(--paper-raised);
 }
 
+/* The case hero sits on a dark --night background, so the default --ink text
+   would be invisible. Scope a light text color here instead of changing
+   .button-secondary globally (which is used on light backgrounds elsewhere). */
+.case-hero .button-secondary {
+  color: var(--white);
+  border-color: var(--line-dark);
+}
+
+.case-hero .button-secondary:hover {
+  color: var(--white);
+  background: var(--night-raised);
+}
+
 .button-small {
   min-height: 2.55rem;
   padding: 0.55rem 1rem;
@@ -593,10 +606,17 @@ p {
 }
 
 /* The hedge trimming robot photo is portrait (3140x3790) and the robot fills
-   the whole frame, so a 16:9 crop cuts it off. Match its natural ratio so the
-   full robot stays in view. */
-.project-visual--portrait {
+   the whole frame. On the case-study hero the full frame is kept so the whole
+   robot stays in view; in preview cards the standard 16:9 frame applies and
+   the crop is anchored to the bottom (see `.project-card .project-visual img`). */
+.case-hero .project-visual--portrait {
   aspect-ratio: 3140 / 3790;
+}
+
+.project-visual picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .project-visual img {
@@ -604,6 +624,14 @@ p {
   height: 100%;
   object-fit: cover;
   transition: transform 400ms ease;
+}
+
+/* Preview cards: crop the portrait robot photo into the standard 16:9 frame.
+   The <picture> wrapper above gets a real height so object-fit/object-position
+   actually engage; this anchors the crop to the bottom so the lower part of the
+   image shows (the top of the frame is what gets cropped away). */
+.project-card .project-visual--portrait img {
+  object-position: bottom;
 }
 
 .project-card:hover .project-visual img {
