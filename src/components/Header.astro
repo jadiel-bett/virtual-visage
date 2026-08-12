@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import siteLogo from "@/assets/profile/portfolio-site-logo.png";
 
 const path = Astro.url.pathname;
@@ -16,7 +17,15 @@ const isActive = (href: string) =>
 <header class="site-header" data-header>
   <div class="container header-inner">
     <a class="brand" href="/" aria-label="Jadiel Bett, home">
-      <img class="brand-mark" src={siteLogo.src} alt="" width={64} height={64} />
+      <Image
+        class="brand-mark"
+        src={siteLogo}
+        alt=""
+        width={64}
+        height={64}
+        format="webp"
+        loading="eager"
+      />
       <span class="brand-name">Jadiel Bett</span>
     </a>
 
