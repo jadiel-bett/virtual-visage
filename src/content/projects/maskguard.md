@@ -31,7 +31,7 @@ links:
 gallery: []
 cover: "../../assets/projects/maskguard.png"
 coverAlt: "MaskGuard mobile face-mask detection interface"
-featuredRank: 3
+featuredRank: 5
 ---
 
 MaskGuard is a compact example of product engineering across interface code, device capabilities, and machine-learning constraints.

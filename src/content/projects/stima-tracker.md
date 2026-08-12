@@ -27,7 +27,7 @@ technologies:
   - "Real-time processing"
 links: []
 gallery: []
-featuredRank: 1
+featuredRank: 4
 confidentiality: "The working repository is private. This case study presents the product and system design without exposing private implementation details."
 ---
 

@@ -29,7 +29,7 @@ links: []
 gallery: []
 cover: "../../assets/projects/iotrix.png"
 coverAlt: "IoTrix Kenya electronics e-store interface"
-featuredRank: 2
+featuredRank: 1
 confidentiality: "The production repository is private. The case study documents the integration and interface work without publishing client code."
 ---
 

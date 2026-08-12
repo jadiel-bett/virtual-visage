@@ -1,4 +1,6 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
+import { z } from "astro/zod";
 
 const linkSchema = z.object({
   label: z.string().min(2),
@@ -7,7 +9,7 @@ const linkSchema = z.object({
 });
 
 const projects = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/projects" }),
   schema: ({ image }) =>
     z
       .object({
@@ -51,7 +53,7 @@ const projects = defineCollection({
 });
 
 const experience = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/experience" }),
   schema: z.object({
     organization: z.string(),
     position: z.string(),
@@ -67,7 +69,7 @@ const experience = defineCollection({
 });
 
 const achievements = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/achievements" }),
   schema: z.object({
     title: z.string(),
     issuer: z.string(),
@@ -80,7 +82,7 @@ const achievements = defineCollection({
 });
 
 const notes = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/notes" }),
   schema: z.object({
     title: z.string().min(8),
     summary: z.string().min(40),
@@ -93,7 +95,7 @@ const notes = defineCollection({
 });
 
 const profile = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/profile" }),
   schema: ({ image }) =>
     z.object({
       name: z.string(),

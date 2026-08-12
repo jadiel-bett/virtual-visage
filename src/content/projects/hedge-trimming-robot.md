@@ -29,7 +29,7 @@ links: []
 gallery: []
 cover: "../../assets/projects/hedge.png"
 coverAlt: "Autonomous hedge trimming robot engineering prototype"
-featuredRank: 4
+featuredRank: 3
 confidentiality: "Project documentation is available by request; no complete public repository is currently published."
 ---
 

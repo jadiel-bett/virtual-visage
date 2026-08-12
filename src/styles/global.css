@@ -197,6 +197,7 @@ p {
   top: 0;
   border-bottom: 1px solid rgb(212 210 201 / 80%);
   background: rgb(245 243 237 / 92%);
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
 }
 
@@ -222,16 +223,10 @@ p {
 }
 
 .brand-mark {
-  display: grid;
-  width: 2.35rem;
-  aspect-ratio: 1;
-  place-items: center;
-  border-radius: 50%;
-  color: var(--white);
-  background: var(--ink);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: -0.06em;
+  height: 2.35rem;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .brand-name {
@@ -580,6 +575,13 @@ p {
   overflow: hidden;
   border-bottom: 1px solid var(--line);
   background: var(--paper-deep);
+}
+
+/* The hedge trimming robot photo is portrait (3140x3790) and the robot fills
+   the whole frame, so a 16:9 crop cuts it off. Match its natural ratio so the
+   full robot stays in view. */
+.project-visual--portrait {
+  aspect-ratio: 3140 / 3790;
 }
 
 .project-visual img {
@@ -1305,12 +1307,14 @@ p {
   display: grid;
   align-items: center;
   gap: clamp(3rem, 8vw, 7rem);
-  grid-template-columns: 1.25fr 0.75fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 27rem);
 }
 
 .portrait-frame {
   position: relative;
+  width: 100%;
   max-width: 27rem;
+  aspect-ratio: 1;
   padding: 0.65rem;
   border: 1px solid var(--line);
   border-radius: 50% 50% var(--radius-lg) var(--radius-lg);

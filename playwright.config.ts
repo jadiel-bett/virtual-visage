@@ -11,7 +11,7 @@ export default defineConfig({
     trace: "on-first-retry",
   },
   webServer: {
-    command: "pnpm preview --host 127.0.0.1",
+    command: "node scripts/playwright-preview.mjs",
     url: "http://127.0.0.1:4321",
     reuseExistingServer: !process.env.CI,
   },

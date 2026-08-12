@@ -27,7 +27,7 @@ technologies:
   - "Cloud Storage"
 links: []
 gallery: []
-featuredRank: 5
+featuredRank: 6
 confidentiality: "The project is not publicly released. This case study uses sanitized product and architecture details."
 ---
 

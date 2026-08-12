@@ -11,7 +11,7 @@ const { project, priority = false } = Astro.props;
 const { cover, coverAlt, title, category } = project.data;
 ---
 
-<div class:list={["project-visual", !cover && "project-visual-generated"]}>
+<div class:list={["project-visual", project.id === "hedge-trimming-robot" && "project-visual--portrait", !cover && "project-visual-generated"]}>
   {
     cover ? (
       <Picture

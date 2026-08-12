@@ -1,4 +1,6 @@
 ---
+import siteLogo from "@/assets/profile/portfolio-site-logo.png";
+
 const year = new Date().getFullYear();
 ---
 
@@ -6,7 +8,7 @@ const year = new Date().getFullYear();
   <div class="container footer-grid">
     <div>
       <a class="brand footer-brand" href="/" aria-label="Jadiel Bett, home">
-        <span class="brand-mark" aria-hidden="true">JB</span>
+        <img class="brand-mark" src={siteLogo.src} alt="" width={64} height={64} />
         <span class="brand-name">Jadiel Bett</span>
       </a>
       <p>Product engineering with a systems perspective.</p>

@@ -31,7 +31,7 @@ links:
 gallery: []
 cover: "../../assets/projects/count-game.png"
 coverAlt: "Count Game mobile application screens"
-featuredRank: 6
+featuredRank: 2
 ---
 
 Count Game represents the full independent product loop: shaping a small idea, implementing it, preparing it for release, and publishing it to a real distribution channel.
