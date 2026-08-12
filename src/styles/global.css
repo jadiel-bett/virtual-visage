@@ -55,7 +55,12 @@ body {
   margin: 0;
   color: var(--ink);
   background:
-    linear-gradient(90deg, transparent 49.95%, rgb(17 26 34 / 3%) 50%, transparent 50.05%),
+    linear-gradient(
+      90deg,
+      transparent 49.95%,
+      rgb(17 26 34 / 3%) 50%,
+      transparent 50.05%
+    ),
     var(--paper);
   font-family: var(--font-sans);
   font-size: var(--step-0);
@@ -67,7 +72,10 @@ body::before {
   position: fixed;
   z-index: -1;
   inset: 0;
-  background-image: radial-gradient(rgb(17 26 34 / 8%) 0.65px, transparent 0.65px);
+  background-image: radial-gradient(
+    rgb(17 26 34 / 8%) 0.65px,
+    transparent 0.65px
+  );
   background-size: 20px 20px;
   content: "";
   opacity: 0.22;
@@ -337,8 +345,14 @@ p {
 
 .hero {
   position: relative;
-  overflow: clip;
+  overflow: hidden; /* Fallback for browsers without `overflow: clip` support (Safari on iOS < 16) */
   padding-block: clamp(5rem, 11vw, 10rem);
+}
+
+@supports (overflow: clip) {
+  .hero {
+    overflow: clip;
+  }
 }
 
 .hero::after {
